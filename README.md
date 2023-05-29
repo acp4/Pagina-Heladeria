@@ -6,7 +6,7 @@ Los lenguajes utilizados fueron Html, CSS (Bootstarp como framework) y Javascrip
 Aunque somos principiantes, nos esforzamos por aprender y mejorar nuestras habilidades mientras trabajamos en este proyecto colaborativo. Valoramos mucho la contribución de otros desarrolladores, ya sean principiantes o experimentados, que estén dispuestos a unirse a nosotros y ayudarnos a construir una aplicación de calidad.
 
 ## URL del Deploy
-Deploy de la plataforma (https://jessfarron.github.io/pagina-Helader-a/)
+Deploy de la plataforma (https://acp4.github.io/Pagina-Heladeria/)
 ## Screenshot
 ![image](https://github.com/JessFarron/pagina-Helader-a/assets/126412050/52b22d9d-82ef-4916-9b5b-ce1d2690c8ce)
 
