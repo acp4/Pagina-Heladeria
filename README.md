@@ -28,7 +28,7 @@ También puedes registrarte como usuario para acceder a funcionalidades adiciona
 ## Colaboradores
 * [github/JessFarron](https://github.com/JessFarron)
 * [github/danngarcia](https://github.com/danngarcia)
-* [github/jpfigueroamoran](https://github.com/jpfigueroamoran) 
+* [github/jpfigueroamoran](https://github.com/jpfigueroamoran) Juan Pablo Figueroa Moran
 * [github/didierlp](https://github.com/didierlp) Didier Lemus Pérez
 * [github/alexismoreno9811](https://github.com/alexismoreno9811) Alexis Moreno
 * [github/almber](https://github.com/almber) Berenice Gudiño
