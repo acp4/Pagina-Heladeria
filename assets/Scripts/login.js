@@ -38,28 +38,31 @@ const mostrarContrasena=()=> {
   }
 
 const validardatos=()=>{
-    let correo1 = document.getElementById("email").value;
-    let contra1 = document.getElementById("contrasena").value;
+    let corr1 = document.getElementById("email").value;
+    let cont1 = document.getElementById("contrasena").value;
     
+    console.log(corr1);
+    console.log(cont1);
+
     let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let formatoContrasena = /^.{6,}$/;
 
     // Validación del correo electrónico
-  if (!formatoCorreo.test(correo1)) {
+  if (!formatoCorreo.test(corr1)) {
     swal( " Por favor, ingresa un correo electrónico válido. ",{
       icon: "warning",
     });
     return false;
   }
   // Validación de la contraseña
-  if (!formatoContrasena.test(contra1)) {
+  if (!formatoContrasena.test(cont1)) {
     swal( " Por favor, ingresa una contraseña de al menos 6 caracteres. ",{
       icon: "warning",
     });
     return false;
   }
 
-    if(correo1 =="" || contra1 ==""){
+    if(corr1 =="" || cont1 ==""){
          swal( " Campo vacio ",{
                 icon: "warning",
               });
