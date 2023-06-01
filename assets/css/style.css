@@ -345,3 +345,29 @@ footer {
 .plus:hover{
   background-color: #717fe0 !important;
 }
+
+/* STYLE PRINCIPAL*/
+
+.cont-mas img {
+  
+  max-height: 500px;
+  width: 30%;
+  border-radius:10px;
+}
+
+.cont-mas {
+height: 500px;
+}
+
+.img-mas-vendido{
+ max-width:300px; 
+ height:300px;
+ object-fit:fill;
+}
+.cont-mas-vendido{
+  background-color: #ffbed7;
+}
+.titulos-index h2{
+  font-weight:700;
+  font-size: 2.5em;
+}
