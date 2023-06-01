@@ -1,29 +1,36 @@
-
+const jsConfetti = new JSConfetti();
 const login = (event)=>{
     event.preventDefault();
     if(validardatos()){
     let correo1 = document.getElementById("email").value;
     let contra1 = document.getElementById("contrasena").value;
-    miStorage = window.localStorage;
-    let clave = miStorage.key(0);
-    let usuarios = JSON.parse(localStorage.getItem(clave));
-    console.log(usuarios);
+    let usuarios = JSON.parse(localStorage.getItem("datosRegistro"));
     let verificar=false;
     for(let i = 0; i < usuarios.length; i++){
         if (correo1 == usuarios[i].correo && contra1 == usuarios[i].contrasena){
            verificar = true;
          } 
       }
-      if(verificar){       
-         swal( " Inicio de sesión ",{
-            icon: "success",
-           }); 
-           window.location.href="../../index.html";
+      if (verificar) {     
+        confetti(); 
+        setTimeout(() => { window.location.href = "../../index.html" }, 2000);
       }else{
         swal( " Usuario no existe, registrate ",{
           icon: "warning",
         }); 
     } 
+  }
+}
+
+const confetti = async () => {
+  try {
+    await jsConfetti.addConfetti({
+      emojis: ['🍧', '🍦', '🍨'],
+      emojiSize: 50,
+      confettiNumber: 50,
+    });
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -40,10 +47,6 @@ const mostrarContrasena=()=> {
 const validardatos=()=>{
     let corr1 = document.getElementById("email").value;
     let cont1 = document.getElementById("contrasena").value;
-    
-    console.log(corr1);
-    console.log(cont1);
-
     let formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     let formatoContrasena = /^.{6,}$/;
 
