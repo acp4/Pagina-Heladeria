@@ -82,12 +82,15 @@ const guardarDatos = (event) => {
     event.preventDefault();
     let nombre = document.getElementById('nombre').value;
     let correo = document.getElementById('correo').value;
+    let contra = document.getElementById('contrasena').value;
     let telefono = document.getElementById('telefono').value;
+
 
     // Crear un objeto con los datos a guardar
     const datos = {
       nombre: nombre,
       correo: correo,
+      contrasena:contra,
       telefono: telefono
     };
     datosRegistro.push(datos);
