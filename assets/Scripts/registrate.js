@@ -73,18 +73,15 @@ const validarFormulario = () => {
 }
 
 const datosRegistro = [];
+const jsConfetti = new JSConfetti();
 
 const guardarDatos = (event) => {
+  event.preventDefault();
   if (validarFormulario()) {
-    swal( " ¡Registro Exitoso! ",{
-      icon: "success",
-    });
-    event.preventDefault();
     let nombre = document.getElementById('nombre').value;
     let correo = document.getElementById('correo').value;
     let contra = document.getElementById('contrasena').value;
     let telefono = document.getElementById('telefono').value;
-
 
     // Crear un objeto con los datos a guardar
     const datos = {
@@ -97,6 +94,20 @@ const guardarDatos = (event) => {
     console.log(datosRegistro);
     // Guardar los datos en el localStorage como una cadena JSON
     localStorage.setItem('datosRegistro', JSON.stringify(datosRegistro));
+    confetti(); 
+    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+  }
+}
+
+const confetti = async () => {
+  try {
+    await jsConfetti.addConfetti({
+      emojis: ['🍧', '🍦', '🍨'],
+      emojiSize: 50,
+      confettiNumber: 50,
+    });
+  } catch (error) {
+    console.error(error);
   }
 }
 

@@ -4,43 +4,82 @@ const paletasContenedor = document.getElementById('contenedor-paletas');
 const aguasContenedor = document.getElementById('contenedor-aguas');
 
 const imprimirProductos = () => {
-  productos.forEach((producto) => {
-    let categoria = producto.categoria;
-    let nombreI = producto.nombre;
-    let precioI = producto.precio;
-    let imagenI = producto.url;
-    let idI = producto.id;
-
-    let productoEnArray = document.createElement('div');
-    productoEnArray.setAttribute("class","mt-2 col-sm-6 col-lg-4 pIndividual");
-    productoEnArray.innerHTML = `
+    // Obtener el carrito del Local Storage (si existe)
+    let carrito = localStorage.getItem('carrito');
+    let productosCarrito = [];
+  
+    // Si el carrito ya existe en el Local Storage, convertirlo en un array
+    if (carrito) {
+      productosCarrito = JSON.parse(carrito);
+    }
+  
+    productos.forEach((producto) => {
+      let categoria = producto.categoria;
+      let nombreI = producto.nombre;
+      let precioI = producto.precio;
+      let imagenI = producto.url;
+      let idI = producto.id;
+  
+      let enCarrito = productosCarrito.some((p) => p.nombre === nombreI);
+  
+      let productoEnArray = document.createElement('div');
+      productoEnArray.setAttribute("class", "mt-2 col-sm-6 col-lg-4 pIndividual");
+      productoEnArray.innerHTML = `
         <div class="image-container-products ">
-        <img src="${imagenI}" width="220" height="240" alt="Foto helado chocolate" 
-        onclick="openModal('${idI}')" data-toggle="modal" data-target="#myModal" >
+          <img src="${imagenI}" width="220" height="240" alt="Foto helado chocolate" 
+          onclick="openModal('${idI}')" data-toggle="modal" data-target="#myModal" >
         </div>
         <div class="nombre-producto"> ${nombreI}</div>
         <div class="precio-producto">$ ${precioI}/L</div>
-        <button class="boton-agregar"><i class="bi bi-cart-plus-fill"></i></button>
-    `;
-    if (categoria==="helados") {
+        <button id="boton-carrito-${idI}" class="boton-agregar" onclick="añadirAlCarrito('${idI}')">
+          ${enCarrito ? 'Ya en tu carrito' : '<i class="bi bi-cart-plus-fill"></i>'}
+        </button>
+      `; 
+  
+      if (categoria === "helados") {
         heladosContenedor.appendChild(productoEnArray);
-    } 
-    else if (categoria==="paletas"){
+      } else if (categoria === "paletas") {
         paletasContenedor.appendChild(productoEnArray);
-    } else if (categoria==="aguas") {
+      } else if (categoria === "aguas") {
         aguasContenedor.appendChild(productoEnArray);
-    } else {
+      } else {
         heladosContenedorP.appendChild(productoEnArray);
-    }
-    
-  });
-};
+      }
+    });
+  };
+  
 
-/* function openModal() {
-    var modal = document.getElementById('myModal');
-    modal.style.display = 'block';
-}
- */
+
+// --------------FUNCIÓN DEL CARRITO 
+function añadirAlCarrito(productId) {
+
+    let product = productos.find(function (p) {
+      return p.id === productId;
+    });
+
+    let nombre = product.nombre;
+    let precio = product.precio;
+
+    let carrito = localStorage.getItem('carrito');
+    let productosCarrito = [];
+
+    if (carrito) {
+      productosCarrito = JSON.parse(carrito);
+    }
+
+    productosCarrito.push({ nombre, precio });
+  
+    localStorage.setItem('carrito', JSON.stringify(productosCarrito));
+  
+
+    document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
+  }
+  
+
+
+
+// ---------------------Funcion MODAL
+
 function openModal(productId) {
     let modal = document.getElementById('myModal');
     let descripcionProducto = document.getElementById('descripcion-producto');
@@ -95,22 +134,22 @@ const productos = [
     {
         id: "5",
         categoria: "helados premium",
-        nombre: "Baileys",
-        descripcion: "Es de Premium Baileys",
+        nombre: "Ferrero",
+        descripcion: "Es de Premium Ferrero",
         precio: "45",
         url: "../image/imgs-helado/heladoP_ferrero.png",
     },
-    {
+    {   id: "6",
         categoria: "helados premium",
-        nombre: "Baileys",
-        descripcion: "Es de Premium Baileys",
+        nombre: "M&M",
+        descripcion: "Es de Premium Mandm",
         precio: "45",
         url: "../image/imgs-helado/heladoP_M&M.png",
     },
 
 
     {   
-        id: "6",
+        id: "7",
         categoria: "paletas",
         nombre: "Maracuya",
         descripcion: "Es paleta de maracuya",
@@ -118,7 +157,7 @@ const productos = [
         url: "../image/imgs-paletas/maracuya.png",
     },
     {   
-        id: "7",
+        id: "8",
         categoria: "paletas",
         nombre: "Oreo",
         descripcion: "Es paleta de galleta oreo",
@@ -126,7 +165,7 @@ const productos = [
         url: "../image/imgs-paletas/paleta-oreo.png",
     },
     {   
-        id: "8",
+        id: "9",
         categoria: "paletas",
         nombre: "Fresa",
         descripcion: "Es paleta de fresa",
@@ -135,7 +174,7 @@ const productos = [
     },
 
     {   
-        id: "9",
+        id: "10",
         categoria: "paletas",
         nombre: "Nuez",
         descripcion: "Es paleta de nuez",
@@ -143,7 +182,7 @@ const productos = [
         url: "../image/imgs-paletas/paleta-nuez.png",
     },
     {
-        id: "10",
+        id: "11",
         categoria: "paletas",
         nombre: "Chocolate",
         descripcion: "Es de chocolate",
@@ -152,7 +191,7 @@ const productos = [
     },
 
     {   
-        id: "11",
+        id: "12",
         categoria: "aguas",
         nombre: "Jamaica",
         descripcion: "Es paleta de galleta oreo",
@@ -160,7 +199,7 @@ const productos = [
         url: "../image/imgs-aguas/agua_jamaica.png",
     },
     {
-        id: "12",
+        id: "13",
         categoria: "aguas",
         nombre: "Mango",
         descripcion: "Es paleta de fresa",
@@ -169,7 +208,7 @@ const productos = [
     },
 
     {
-        id: "13",
+        id: "14",
         categoria: "aguas",
         nombre: "Kiwi",
         descripcion: "Es paleta de nuez",
@@ -177,7 +216,7 @@ const productos = [
         url: "../image/imgs-aguas/agua_kiwi.png",
     },
     {
-        id: "14",
+        id: "15",
         categoria: "aguas",
         nombre: "Limón con chía",
         descripcion: "Es de chocolate",
@@ -192,20 +231,3 @@ const productos = [
 document.addEventListener('DOMContentLoaded', () => {
     imprimirProductos();
   }); 
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var countInput = document.querySelector('.count');
-    var plusButton = document.querySelector('.plus');
-    var minusButton = document.querySelector('.minus');
-
-    plusButton.addEventListener('click', function() {
-      countInput.value = parseInt(countInput.value) + 1;
-    });
-
-    minusButton.addEventListener('click', function() {
-      if (parseInt(countInput.value) > 1) {
-        countInput.value = parseInt(countInput.value) - 1;
-      }
-    });
-  });

@@ -2,15 +2,51 @@
 
 * {
   font-family: 'Josefin Sans', sans-serif;
-  margin:0px;
-  padding:0px;
-  box-sizing:border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
 }
-body{
+
+body {
   background: linear-gradient(to top, #FDE1B9, #FCFCEC);
 }
 
-.titulos{
+/* loading  */
+.loader{
+  background-image: url('../image/img-inicio/loader.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 200px;
+  height: 200px;
+}
+
+.loader-wrapper {
+  background-color: #FCFCEC;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.loader-hidden{
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+.titulos {
   font-weight: 700;
 }
 
@@ -28,18 +64,18 @@ body{
   justify-content: flex-start;
   align-content: flex-end;
   align-items: flex-end;
-  
+
 }
 
 @media only screen and (max-width: 768px) {
-  .contenedor-imagen{
+  .contenedor-imagen {
     justify-content: center;
     align-items: center;
     align-content: center;
     height: 500px;
   }
-  
-  .texto-imagen{
+
+  .texto-imagen {
     width: 300px;
   }
 }
@@ -113,8 +149,9 @@ footer {
   background: rgb(190, 242, 255);
   background: linear-gradient(0deg, rgba(233, 250, 254, 1) 65%, #FAB9D1 90%);
 }
+
 /* Aqui comienza el estilo del carousel */
-.card{
+.card {
   margin: 0 0.5em;
   box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
   padding: 10px;
@@ -125,22 +162,22 @@ footer {
   background-image: linear-gradient(180deg, #FAB9D1 50%, #FFFFFF 50%);
 }
 
-.carousel-control-prev-icon{
+.carousel-control-prev-icon {
   border-radius: 50%;
   background-color: #000000;
 }
 
-.carousel-control-next-icon{
+.carousel-control-next-icon {
   border-radius: 50%;
   background-color: #000000;
 }
 
-.carousel-indicators{
+.carousel-indicators {
   position: relative !important;
 }
 
-.inidicators-carousel{
-  height: 1rem  !important;
+.inidicators-carousel {
+  height: 1rem !important;
   width: 1rem !important;
   border-radius: 50%;
   background-color: #000000 !important;
@@ -150,7 +187,8 @@ footer {
   .card img {
     height: 11em;
   }
-  .card-full{
+
+  .card-full {
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     padding: 10px;
     margin: 0 0.5em;
@@ -161,6 +199,7 @@ footer {
     background-image: linear-gradient(180deg, #FAB9D1 50%, #FFFFFF 50%);
   }
 }
+
 /* Aquí termina el estilo del carousel */
 #imagen-contacto {
   border-radius: 10px;
@@ -168,50 +207,61 @@ footer {
 
 /*Aqui empiza log in*/
 
-.container-round{
+.container-round {
   border-radius: 10px;
-  background:  #fcfcec;
+  background: #fcfcec;
 }
 
-.anchor-text{
+.anchor-text {
   color: #da0f7e;
 }
 
-.form-check-input[type="checkbox"]:checked{
-  background-color:  #da0f7e;
-  border-color:  #da0f7e;
+.form-check-input[type="checkbox"]:checked {
+  background-color: #da0f7e;
+  border-color: #da0f7e;
 }
 
-.form-check-input[type="checkbox"]:not(:checked){
-  border-color:  #da0f7e;
+.form-check-input[type="checkbox"]:not(:checked) {
+  border-color: #da0f7e;
 }
 
-#container4{
+#container4 {
   border-radius: 10px;
-  background:  #fcfcec;
+  background: #fcfcec;
 }
 
 
 /* STYLE DE PRODUCTOS */
-.link-no-underline, .link-no-underline-2 {
-  color: inherit; /* Mantener el color del texto heredado */
-  text-decoration: none; /* Quitar la subrayado */
+.link-no-underline,
+.link-no-underline-2 {
+  color: inherit;
+  /* Mantener el color del texto heredado */
+  text-decoration: none;
+  /* Quitar la subrayado */
 }
 
-.link-no-underline ,.link-no-underline-2{
-  color: inherit; /* Mantener el color del texto heredado */
-  text-decoration: none; /* Quitar la subrayado */
+.link-no-underline,
+.link-no-underline-2 {
+  color: inherit;
+  /* Mantener el color del texto heredado */
+  text-decoration: none;
+  /* Quitar la subrayado */
 }
 
 .link-no-underline:hover {
-  color: #AD7C68; /* Mantener el color del texto heredado al pasar el cursor */
-  text-decoration: none; /* Quitar la subrayado al pasar el cursor */
+  color: #AD7C68;
+  /* Mantener el color del texto heredado al pasar el cursor */
+  text-decoration: none;
+  /* Quitar la subrayado al pasar el cursor */
 }
 
 .link-no-underline-2:hover {
-  color: #FFFFFF; /* Mantener el color del texto heredado al pasar el cursor */
-  text-decoration: none; /* Quitar la subrayado al pasar el cursor */
+  color: #FFFFFF;
+  /* Mantener el color del texto heredado al pasar el cursor */
+  text-decoration: none;
+  /* Quitar la subrayado al pasar el cursor */
 }
+
 .contenedor-productos {
   display: flex;
   flex-wrap: wrap;
@@ -228,15 +278,15 @@ footer {
   font-weight: 500;
 }
 
-.boton-agregar{
+.boton-agregar {
   color: #FFFFFF;
-  background-color:  black;
+  background-color: black;
   padding: 10px 20px;
   border-radius: 15px;
 }
 
-.boton-agregar:hover{
-  transform: scale(1.1); 
+.boton-agregar:hover {
+  transform: scale(1.1);
   background-color: #AD7C68;
 }
 
@@ -251,39 +301,47 @@ footer {
 #links-productos {
   font-size: 20px;
 }
-#categoria-responsive{display: none;}
+
+#categoria-responsive {
+  display: none;
+}
 
 
 .image-container-products {
-  display: inline-block; /* Asegura el wrap de la imagen unicamente */
+  display: inline-block;
+  /* Asegura el wrap de la imagen unicamente */
 }
 
 .image-container-products img {
-  opacity:   .66;
-  transition: transform 0.3s; /* Transición*/
+  opacity: .66;
+  transition: transform 0.3s;
+  /* Transición*/
 }
 
 .image-container-products img:hover {
-  opacity:   1;
-  transform: scale(1.4); 
+  opacity: 1;
+  transform: scale(1.4);
 }
 
 
 
 
 .modal-header {
-  background-color: pink; /* Set the header background color to pink */
-  border-bottom: none; /* Remove the border at the bottom of the header */
-  background-color: rgba(255, 192, 203, 0.5); 
+  background-color: pink;
+  /* Set the header background color to pink */
+  border-bottom: none;
+  /* Remove the border at the bottom of the header */
+  background-color: rgba(255, 192, 203, 0.5);
 }
 
 .modal-body {
-  background-color:  #fcfcec;
+  background-color: #fcfcec;
 }
 
-  #cantidades .col {
-    gap: 0.5rem !important; /* Adjust the gap as needed */
-  }
+#cantidades .col {
+  gap: 0.5rem !important;
+  /* Adjust the gap as needed */
+}
 
 @media screen and (max-width: 980px) {
   #contenedor-categoria {
@@ -293,15 +351,18 @@ footer {
   .titulo-productos {
     text-align: center;
   }
+
   #categoria-responsive {
     display: block;
     font-size: 100px;
   }
-.boton-categoria {
-  color: #FFFFFF !important;
-   background-color: #AD7C68 !important;
+
+  .boton-categoria {
+    color: #FFFFFF !important;
+    background-color: #AD7C68 !important;
   }
 }
+
 /* ------------------------------ */
 
 .qty .count {
@@ -311,10 +372,11 @@ footer {
   font-size: 25px;
   font-weight: 700;
   line-height: 30px;
-  padding: 0 2px
-  ;min-width: 35px;
+  padding: 0 2px;
+  min-width: 35px;
   text-align: center;
 }
+
 .qty .plus {
   cursor: pointer;
   display: inline-block;
@@ -322,10 +384,11 @@ footer {
   color: white;
   width: 30px;
   height: 30px;
-  font: 30px/1 Arial,sans-serif;
+  font: 30px/1 Arial, sans-serif;
   text-align: center;
   border-radius: 50%;
-  }
+}
+
 .qty .minus {
   cursor: pointer;
   display: inline-block;
@@ -333,41 +396,44 @@ footer {
   color: white;
   width: 30px;
   height: 30px;
-  font: 30px/1 Arial,sans-serif;
+  font: 30px/1 Arial, sans-serif;
   text-align: center;
   border-radius: 50%;
   background-clip: padding-box;
 }
 
-.minus:hover{
+.minus:hover {
   background-color: #717fe0 !important;
 }
-.plus:hover{
+
+.plus:hover {
   background-color: #717fe0 !important;
 }
 
 /* STYLE PRINCIPAL*/
 
 .cont-mas img {
-  
+
   max-height: 500px;
   width: 30%;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .cont-mas {
-height: 500px;
+  height: 500px;
 }
 
-.img-mas-vendido{
- max-width:300px; 
- height:300px;
- object-fit:fill;
+.img-mas-vendido {
+  max-width: 300px;
+  height: 300px;
+  object-fit: fill;
 }
-.cont-mas-vendido{
+
+.cont-mas-vendido {
   background-color: #ffbed7;
 }
-.titulos-index h2{
-  font-weight:700;
+
+.titulos-index h2 {
+  font-weight: 700;
   font-size: 2.5em;
 }
