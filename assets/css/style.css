@@ -206,6 +206,10 @@ footer {
 }
 
 /*Aqui empiza log in*/
+.logo-icon-page{
+  width: 200px;
+ 
+}
 
 .container-round {
   border-radius: 10px;
