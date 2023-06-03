@@ -206,6 +206,15 @@ footer {
 }
 
 /*Aqui empiza log in*/
+.imagen-form{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.logo-icon-page{
+  width: 200px;
+ 
+}
 
 .container-round {
   border-radius: 10px;

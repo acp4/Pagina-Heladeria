@@ -5,63 +5,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contáctanos</title>
   <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/navbar.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!--link para decorar input-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--link para decorar input-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="../css/navbar.css">
+  <title>Crear producto</title>
 </head>
 
 <body>
   <!-- NavBar -->
-  <nav id="nav-menu" class="navbar navbar-expand-lg navbar-light px-md-2 p-sm-1">
-    <div class="container-fluid d-flex justify-content-between align-items-start align-content-start nav-content">
-      <a class="navbar-brand" href="index.html">
-        <img id="logo" src="../image/imgs-navbar/logo.png" alt="Logo de la empresa" class="d-inline-flex">
+  <nav class="nav-menu navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+        <img class="logo" src="../image/imgs-navbar/logo.png" alt="Logo de la empresa" class="d-inline-flex">
       </a>
-
-      <button id="toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
-      <div class="collapse navbar-collapse list" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <li class="nav-item mx-md-2">
-            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+      <div class="collapse navbar-collapse list" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
           </li>
-          <li class="nav-item mx-md-2">
-            <a class="nav-link" href="./assets/html/contactanos.html">Contacto</a>
+          <li class="nav-item">
+            <a class="nav-link" href="./contactanos.html">Contacto</a>
           </li>
-          <li class="nav-item mx-md-2">
-            <a class="nav-link" href="./assets/html/acerca-de-nosotros.html">Acerca de nosotros</a>
+          <li class="nav-item">
+            <a class="nav-link" href="./acerca-de-nosotros.html">Acerca de nosotros</a>
           </li>
-          <li class="nav-item mx-md-2">
-            <a class="nav-link" href="./assets/html/productos.html">Productos</a>
+          <li class="nav-item">
+            <a class="nav-link" href="./productos.html">Productos</a>
           </li>
         </ul>
 
         <ul class="navbar-nav">
-          <li class="nav-item mx-md-2 my-sm-2">
-            <form class="d-flex gap-3">
-              <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
+          <li class="nav-item">
+            <form class="search-form" role="search">
+              <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
               <button class="btn btn-outline-dark" type="submit">Buscar</button>
             </form>
           </li>
-          <li class="nav-item mx-md-2 my-sm-2">
-            <a class="nav-link" href="./login.html">Login / Sign in</a>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./login.html">Log in</a>
           </li>
-          <li class="nav-item mx-md-2 my-sm-2">
-            <a href="./assets/html/perfil-de-usuario.html">
-              <img class="icon" src="../image/imgs-navbar/perfil-icon.png" alt="Icono de perfil">
-            </a>
-          </li>
-          <li class="nav-item mx-md-2 my-sm-2">
-            <a class="nav-link1" href="./carrito.html">
-              <img class="icon" src="../image/imgs-navbar/cart-icon.png" alt="Icono de carrito de compras">
-            </a>
+          <li class="nav-item">
+            <div class="nav-bar-icons">
+              <a class="nav-link" href="./perfil-de-usuario.html">
+                <img class="icon" src="../image/imgs-navbar/perfil-icon.png" alt="Icono de perfil">
+              </a>
+              <a class="nav-link" href="./carrito.html">
+                <img class="icon" src="../image/imgs-navbar/cart-icon.png" alt="Icono de carrito de compras">
+              </a>
+            </div>
           </li>
         </ul>
       </div>
@@ -72,69 +73,80 @@
 
   <div class="container justify-content-center my-5" id="container4">
     <div class="row">
-      <div class="col-lg-6 d-none d-lg-flex">
-        <img src="https://i.pinimg.com/564x/25/18/a1/2518a12c65718c96dc105a0fa1804fab.jpg"alt="helado"
-          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5"  />
+      <div class="col-lg-6 d-none d-lg-flex p-0">
+        <img src="https://i.pinimg.com/564x/25/18/a1/2518a12c65718c96dc105a0fa1804fab.jpg" alt="helado"
+          class="w-100 imagen-form" />
       </div>
       <div class="col-lg-6">
         <div class="card-body py-5 px-md-5">
           <form>
-            <div class="logo text-center mb-2">
-              <img src="../image/imgs-navbar/logo.png" alt="logo" class="img-fluid" width="200px">
-              <h2>Alta de productos</h2>
+            <div class="row mb-2 text-center justify-content-center">
+              <div class="col">
+                <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
+                <h2>Alta de productos</h2>
+              </div>
             </div>
-            <div class="row mb-2">
-              <label for="nombre" class="form-outline mt-5"><i class="fa-solid fa-ice-cream"></i> Nombre del producto</label>
-              <div class="col-sm-10">
+
+            <div class="row mb-2 px-sm-4">
+              <div class="col-sm-12">
+                <label for="nombre" class="form-outline mt-5"><i class="fa-solid fa-ice-cream"></i> Nombre del
+                  producto</label>
                 <input type="text" class="form-control" id="nombre" required>
               </div>
             </div>
-            <div class="row mb-2">
-              <label for="descripcion" class="form-outline mt-2"><i class="fa-solid fa-audio-description"></i> Descripción</label>
-              <div class="col-sm-10">
+            <div class="row mb-2 px-sm-4">
+              <div class="col-sm-12">
+                <label for="descripcion" class="form-outline mt-2"><i class="fa-solid fa-audio-description"></i>
+                  Descripción</label>
                 <textarea type="text" class="form-control" id="descripcion" required></textarea>
               </div>
             </div>
-            <div class="row mb-2">
-              <label for="precio" class="form-outline mt-2"><i class="fa-sharp fa-solid fa-barcode"></i> Precio</label>
-              <div class="col-sm-10">
+            <div class="row mb-2 px-sm-4">
+              <div class="col-sm-12">
+                <label for="precio" class="form-outline mt-2"><i class="fa-sharp fa-solid fa-barcode"></i> Precio</label>
                 <input type="number" class="form-control" id="precio" required min="0" max="1000">
               </div>
             </div>
-            <div class="row mb-2">
-              <label for="img-url" class="form-outline mt-2"><i class="fa-regular fa-image"></i> Url de la imagen</label>
-              <div class="col-sm-10">
+            <div class="row mb-2 px-sm-4">
+              <div class="col-sm-12">
+                <label for="img-url" class="form-outline mt-2"><i class="fa-regular fa-image"></i> Url de la
+                  imagen</label>
                 <input type="text" class="form-control" id="img-url" required>
               </div>
             </div>
-            <fieldset class="row mb-2">
-              <legend class="form-outline mt-2">Categoría</legend>
-              <div class="col-sm-10">
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="helados" value="helados" required>
-                  <label class="form-check-label" for="helados">
-                    Helados
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="paletas" value="paletas" required>
-                  <label class="form-check-label" for="paletas">
-                    Paletas
-                  </label>
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="gridRadios" id="aguas" value="aguas" required>
-                  <label class="form-check-label" for="aguas">
-                    Aguas
-                  </label>
-                </div>
+            <div class="row row mb-2 px-sm-4">
+              <div class="col-sm-12">
+                <fieldset class="row">
+                  <div class="col-sm-12">
+                    <legend class="form-outline mt-2">Categoría</legend>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="helados" value="helados" required>
+                      <label class="form-check-label" for="helados">
+                        Helados
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="paletas" value="paletas" required>
+                      <label class="form-check-label" for="paletas">
+                        Paletas
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="gridRadios" id="aguas" value="aguas" required>
+                      <label class="form-check-label" for="aguas">
+                        Aguas
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
               </div>
-            </fieldset>
+            </div>
+            <div class="row row my-3 px-sm-4">
+              <div class="col-sm-12">
+                <button onclick="agregarProductos(event)" type="submit" class="btn btn-dark mt-2">Agregar</button>
+              </div>
+            </div>
             
-        
-  
-            <button onclick="agregarProductos(event)"  type="submit" class="btn btn-dark mt-2">Agregar</button>
-            <!--<button type="submit" class="btn btn-danger">Borrar</button>-->
           </form>
         </div>
       </div>
