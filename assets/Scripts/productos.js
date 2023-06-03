@@ -36,11 +36,11 @@ const imprimirProductos = () => {
         </button>
       `; 
   
-      if (categoria === "helados") {
+      if (categoria === "Helados") {
         heladosContenedor.appendChild(productoEnArray);
-      } else if (categoria === "paletas") {
+      } else if (categoria === "Paletas") {
         paletasContenedor.appendChild(productoEnArray);
-      } else if (categoria === "aguas") {
+      } else if (categoria === "Aguas") {
         aguasContenedor.appendChild(productoEnArray);
       } else {
         heladosContenedorP.appendChild(productoEnArray);
@@ -96,133 +96,133 @@ function openModal(productId) {
     modal.style.display = 'block';
   }
 
-const productos = [
+  const productos = [
     {
         id: "1",
-        categoria: "helados",
+        categoria: "Helados",
         nombre: "Chocolate",
-        descripcion:"Sumérgete en un mundo de tentación y placer con el helado de chocolate. Este exquisito manjar combina la riqueza y suavidad del chocolate más fino con la cremosidad de un helado artesanal. Cada cucharada te envuelve en un deleite sedoso y indulgente que hace derretir tu paladar. Disfruta de la intensidad y el sabor profundo del chocolate, mientras se desliza suavemente en tu boca, despertando todos tus sentidos. El helado de chocolate es el regalo perfecto para los amantes del dulce, una delicia irresistible que te transportará a un mundo de satisfacción absoluta. Así que, déjate llevar por esta indulgencia suprema y presume de tu elección con cada bocado lleno de placer.",
+        descripcion:"Sumérgete en un mundo de tentación y placer con el helado de chocolate. Este exquisito manjar combina la riqueza y suavidad del chocolate más fino con la cremosidad de un helado artesanal. Cada cucharada te envuelve en un deleite sedoso y indulgente que hace derretir tu paladar. Disfruta de la intensidad y el sabor profundo del chocolate, mientras se desliza suavemente en tu boca, despertando todos tus sentidos. El helado de chocolate es el regalo perfecto para los amantes del dulce, una delicia irresistible que te transportará a un mundo de satisfacción absoluta.",
         precio: "35",
-        url: "../image/imgs-helado/helado_choco.png",
+        url: "https://i.postimg.cc/nh1x6F9K/helado-choco.png",//../image/imgs-helado/helado_choco.png
     },
     {
         id: "2",
-        categoria: "helados",
+        categoria: "Helados",
         nombre: "Oreo",
         descripcion: "Sumérgete en un placer celestial con el helado de galleta Oreo. Combina la suavidad del helado más delicado con el crujiente sabor de las icónicas galletas Oreo. Cada cucharada te ofrece una experiencia de texturas y sabores irresistibles. ¡Disfruta de este capricho delicioso y presume de tu elección única!",
         precio: "35",
-        url: "../image/imgs-helado/helado_oreo.png",
+        url: "https://i.postimg.cc/85YfMB1C/helado-oreo.png"//"../image/imgs-helado/helado_oreo.png",
     },
     {
         id: "3",
-        categoria: "helados",
+        categoria: "Helados",
         nombre: "Vainilla",
-        descripcion: "Es de vainilla",
+        descripcion: "El clásico sabor de la vainilla se eleva a nuevas alturas en nuestro helado. Su textura suave y cremosa, junto con su exquisito sabor a vainilla, lo convierten en una elección atemporal y satisfactoria para los amantes de los helados tradicionales.",
         precio: "35",
-        url: "../image/imgs-helado/helado_vainilla.png",
+        url: "https://i.postimg.cc/hv7zrzj1/helado-vainilla.png",
     },
-
     {
         id: "4",
-        categoria: "helados premium",
+        categoria: "Helados premium",
         nombre: "Baileys",
-        descripcion: "Es de Premium Baileys",
+        descripcion: " Sumérgete en una experiencia indulgente con nuestro helado Baileys. Con su suave y sedosa base de helado con sabor a licor de crema irlandesa, este postre te consentirá con su inigualable dulzura y sofisticación.",
         precio: "45",
-        url: "../image/imgs-helado/helado_baileys.png",
+        url: "https://i.postimg.cc/1tXN8Y1T/helado-baileys.png"//"../image/imgs-helado/helado_baileys.png",
     },
 
     {
         id: "5",
-        categoria: "helados premium",
+        categoria: "Helados premium",
         nombre: "Ferrero",
-        descripcion: "Es de Premium Ferrero",
+        descripcion: "Experimenta la perfección del chocolate y las avellanas en nuestro helado Ferrero. Con su combinación irresistible de helado de avellana y trozos de chocolate Ferrero Rocher, este helado es un verdadero placer para los amantes del chocolate y los frutos secos.",
         precio: "45",
-        url: "../image/imgs-helado/heladoP_ferrero.png",
+        url: "https://i.postimg.cc/7b8CQHJ8/helado-P-ferrero.png"//"../image/imgs-helado/heladoP_ferrero.png",
     },
     {   id: "6",
-        categoria: "helados premium",
+        categoria: "Helados premium",
         nombre: "M&M",
-        descripcion: "Es de Premium Mandm",
+        descripcion: "Disfruta de la deliciosa combinación de helado cremoso y crujientes trozos de chocolate M&M. Este exquisito helado te brindará una explosión de sabores y texturas que deleitará tus sentidos.",
         precio: "45",
-        url: "../image/imgs-helado/heladoP_M&M.png",
+        url: "https://i.postimg.cc/dV9BdXgt/helado-P-M-M.png"//"../image/imgs-helado/heladoP_M&M.png",
     },
 
 
     {   
         id: "7",
-        categoria: "paletas",
+        categoria: "Paletas",
         nombre: "Maracuya",
-        descripcion: "Es paleta de maracuya",
+        descripcion: "Refréscate con nuestra paleta de maracuyá, un delicioso y tropical helado en forma de paleta. Su sabor vibrante y ácido te transportará a exóticos paisajes tropicales, ofreciéndote un momento refrescante y lleno de energía.",
         precio: "35",
-        url: "../image/imgs-paletas/maracuya.png",
+        url: "https://i.postimg.cc/nr0FqnKG/maracuya.png" //"../image/imgs-paletas/maracuya.png"
     },
     {   
         id: "8",
-        categoria: "paletas",
+        categoria: "Paletas",
         nombre: "Oreo",
-        descripcion: "Es paleta de galleta oreo",
+        descripcion: "Sumérgete en la delicia crujiente de nuestra paleta de Oreo. Con trozos de galletas Oreo mezclados en una base de helado cremoso, esta paleta es un sueño hecho realidad para los amantes de las galletas y el helado, brindando una experiencia dulce y satisfactoria.",
         precio: "35",
-        url: "../image/imgs-paletas/paleta-oreo.png",
+        url: "https://i.postimg.cc/Kz7vvPRV/paleta-oreo.png"//"../image/imgs-paletas/paleta-oreo.png"
     },
     {   
         id: "9",
-        categoria: "paletas",
+        categoria: "Paletas",
         nombre: "Fresa",
-        descripcion: "Es paleta de fresa",
+        descripcion: "Disfruta de la frescura y la dulzura natural de nuestra paleta de fresa. El intenso sabor a fresas maduras se combina con la textura suave y cremosa del helado, creando una paleta irresistible que te hará querer saborearla una y otra vez.",
         precio: "35",
-        url: "../image/imgs-paletas/paleta-fresa.png",
+        url: "https://i.postimg.cc/Ls18GKRm/paleta-fresa.png" //"../image/imgs-paletas/paleta-fresa.png"
     },
 
     {   
         id: "10",
-        categoria: "paletas",
+        categoria: "Paletas",
         nombre: "Nuez",
-        descripcion: "Es paleta de nuez",
+        descripcion: " Descubre el sabor crujiente y lleno de carácter de nuestra paleta de nuez. Con trozos generosos de nueces tostadas en cada bocado, esta paleta te brinda una experiencia llena de texturas y un sabor auténtico que satisfará tus antojos de nuez de manera deliciosa.",
         precio: "45",
-        url: "../image/imgs-paletas/paleta-nuez.png",
+        url: "https://i.postimg.cc/Y9BCHnqY/paleta-nuez.png" //"../image/imgs-paletas/paleta-nuez.png",
     },
     {
         id: "11",
-        categoria: "paletas",
+        categoria: "Paletas",
         nombre: "Chocolate",
-        descripcion: "Es de chocolate",
+        descripcion: "Sumérgete en la indulgencia absoluta con nuestra paleta de chocolate. Cada mordisco es una explosión de sabor a chocolate intenso y cremoso que te hará disfrutar de un verdadero placer chocolatoso. Una opción clásica que nunca pasa de moda y que deleitará a los amantes del chocolate en todas sus formas.",
         precio: "35",
-        url: "../image/imgs-paletas/chocolate.png",
+        url: "https://i.postimg.cc/RhMC3Wt0/chocolate.png"//"../image/imgs-paletas/chocolate.png"
     },
 
     {   
         id: "12",
-        categoria: "aguas",
+        categoria: "Aguas",
         nombre: "Jamaica",
-        descripcion: "Es paleta de galleta oreo",
+        descripcion: " Refréscate con nuestra agua de Jamaica, una deliciosa bebida elaborada a partir de las flores de hibisco. Con su distintivo color rojo y sabor ligeramente ácido, esta agua te brinda una experiencia refrescante y tropical que te transportará a las cálidas tierras de México.",
         precio: "35",
-        url: "../image/imgs-aguas/agua_jamaica.png",
+        url: "https://i.postimg.cc/5jK8KdJw/agua-jamaica.png"//"../image/imgs-aguas/agua_jamaica.png"
     },
     {
         id: "13",
-        categoria: "aguas",
+        categoria: "Aguas",
         nombre: "Mango",
-        descripcion: "Es paleta de fresa",
+        descripcion: "Sumérgete en la dulzura tropical de nuestra agua de mango. El jugo natural de mangos maduros se combina con agua para crear una bebida refrescante y llena de sabor. Cada sorbo te transportará a playas paradisíacas y te brindará un momento de puro disfrute.",
         precio: "35",
-        url: "../image/imgs-aguas/agua_mango.png",
+        url: "https://i.postimg.cc/9r4Zv8Xs/agua-mango.png"//"../image/imgs-aguas/agua_mango.png"
     },
 
     {
         id: "14",
-        categoria: "aguas",
+        categoria: "Aguas",
         nombre: "Kiwi",
-        descripcion: "Es paleta de nuez",
+        descripcion: " Descubre la frescura y el sabor jugoso de nuestra agua de kiwi. Con su vibrante color verde y su sabor dulce y ligeramente ácido, esta bebida te brinda una experiencia refrescante y llena de vitalidad. Cada sorbo te conectará con la energía revitalizante de esta exótica fruta",
         precio: "45",
-        url: "../image/imgs-aguas/agua_kiwi.png",
+        url: "https://i.postimg.cc/crVwZRrC/agua-kiwi.png"//"../image/imgs-aguas/agua_kiwi.png"
     },
     {
         id: "15",
-        categoria: "aguas",
+        categoria: "Aguas",
         nombre: "Limón con chía",
-        descripcion: "Es de chocolate",
+        descripcion: "Disfruta de la combinación revitalizante de limón con chía en nuestra refrescante agua. El jugo de limón recién exprimido se mezcla con las semillas de chía para crear una bebida refrescante y llena de beneficios para la salud. Cada sorbo te hidratará y te brindará una sensación revitalizante.",
         precio: "35",
-        url: "../image/imgs-aguas/agua_limonC.png",
-    }
+        url: "https://i.postimg.cc/NLj1xG3s/agua-limon-C.png" //"../image/imgs-aguas/agua_limonC.png"
+    },
+    
 
     
 ]
