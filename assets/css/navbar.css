@@ -1,49 +1,100 @@
-#nav-menu {
+.nav-menu {
   background-size: cover;
   background-position: center;
-  height: 250px;
+  height: 200px;
+  padding-bottom: 60px; 
   background-image: url(../image/imgs-navbar/derretido-200.svg);
   position: relative; 
-  padding: 30px;
+ 
 }
 
-.nav-content{
-  position: absolute; 
-  bottom: 80px; 
-  left: 0px;
-  right: 10px;
-
+.navbar-nav{
+  display: flex;
+  gap: 15px;
 }
 
-@media screen and (max-width:986px) {
-  .list {
-    width: 100% !important;
-    height: 100vh !important;
-    margin: 0px !important;
-    padding: 30px !important;
-    background-color: #ffbed7 !important;
-    text-align: left !important;
-    position: absolute !important;
-    top: 5rem !important;
-    left: 0px !important;
+.search-form{
+  display: flex;
+}
+
+.search-input{
+  width: 300px;
+} 
+
+.nav-item{
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.nav-bar-icons{
+  display: flex;
+}
+
+@media screen and (min-width: 990px) and (max-width: 1204px){
+  .navbar-nav{
+    gap: 5px;
   }
 
+  .search-form{
+    visibility: hidden;
+    display: none;
+  }
+  
+.search-input{
+  width: auto;
+} 
 }
 
-.navbar-nav li {
-  font-weight: bold;
+
+@media screen and (max-width:986px) {
+
+  .search-form{
+    visibility:visible;
+    display: flex;
+  }
+
+  .navbar-nav{
+    gap: 25px;
+  }
+
+  .nav-bar-icons{
+    gap:16px;
+  }
+
+  .list {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 30px;
+    background-color: #ffbed7;
+    text-align: left;
+    position: absolute;
+    top: 115px;
+    left: 0px;
+    z-index: 9999;
+  }
+
+  .list ul {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+  }
+  .list>ul>li:hover{
+    padding:10px;
+    border-top: 2px solid #bc6788;
+    border-bottom: 2px solid #bc6788; 
+  }
 }
 
-#logo {
+.logo {
   width: 150px;
   height: 100px;
-  position: relative;
-  right: 0px;
-  left: 0px;
-  bottom: 40px;
 }
 
 .icon {
   width: 25PX;
   height: 25PX;
-}
+} 
