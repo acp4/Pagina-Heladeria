@@ -421,21 +421,28 @@ footer {
 
 /* STYLE PRINCIPAL*/
 
-.cont-mas img {
-
-  max-height: 500px;
-  width: 30%;
-  border-radius: 10px;
+.cont-mas img{
+  /* max-height:1599px;
+  max-width: 932px;  */
+  border-radius:10px;
+ 
+ 
+  
 }
 
-.cont-mas {
-  height: 500px;
-}
+/* .cont-mas {
 
-.img-mas-vendido {
-  max-width: 300px;
-  height: 300px;
-  object-fit: fill;
+  height: 500px!important; 
+  width: 200px;
+  border:5px solid red; 
+  
+}   */
+
+.img-mas-vendido{
+ max-width:300px; 
+ border-radius: 10px;
+ height:300px;
+ object-fit:fill;
 }
 
 .cont-mas-vendido {
@@ -446,3 +453,16 @@ footer {
   font-weight: 700;
   font-size: 2.5em;
 }
+
+@media only screen and (min-width: 768px) and (max-width:1300px) {
+  .img-mas-vendido{
+    width: 150px;
+    height: 150px;
+  }
+
+ }
+
+ /* .car-descuentos{
+  height: auto;
+ 
+ } */
