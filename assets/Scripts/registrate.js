@@ -14,98 +14,123 @@ const validarFormulario = () => {
 
   // Validación del nombre
   if (nombre.trim() === '') {
-    mostrarAlerta('Por favor, ingresa tu nombre.', 'warning');
+    swal("Por favor, ingresa tu nombre.", {
+      icon: "warning",
+    });
     return false;
   }
 
   // Validación del correo electrónico
   if (!formatoCorreo.test(correo)) {
-    mostrarAlerta('Por favor, ingresa un correo electrónico válido.', 'warning');
+    swal("Por favor, ingresa un correo electrónico válido.", {
+      icon: "warning",
+    });
     return false;
   }
 
   // Validación de la contraseña
   if (!formatoContrasena.test(contrasena)) {
-    mostrarAlerta('Por favor, ingresa una contraseña de al menos 6 caracteres.', 'warning');
+    swal("Por favor, ingresa una contraseña de al menos 6 caracteres.", {
+      icon: "warning",
+    });
     return false;
   }
 
   // Validación de la confirmación de contraseña
   if (contrasena !== confirContrasena) {
-    mostrarAlerta('Las contraseñas no coinciden. Por favor, verifica.', 'warning');
+    swal("Las contraseñas no coinciden. Por favor, verifica.", {
+      icon: "warning",
+    });
     return false;
   }
 
   // Validación del teléfono
   if (telefono.trim() === '') {
-    mostrarAlerta('Por favor, ingresa tu número de teléfono.', 'warning');
+    swal("Por favor, ingresa tu número de teléfono.", {
+      icon: "warning",
+    });
     return false;
   }
 
   // Validación del número de teléfono (10 dígitos)
   if (telefono.length !== 10 || !(/^\d+$/.test(telefono))) {
-    mostrarAlerta('Por favor, ingresa un número de teléfono válido de 10 dígitos.', 'warning');
+    swal("Por favor, ingresa un número de teléfono válido de 10 dígitos.", {
+      icon: "warning",
+    });
     return false;
   }
 
   // Validación de la dirección de envío
   if (direccionEnvio.trim() === '') {
-    mostrarAlerta('Por favor, ingresa tu dirección de envío.', 'warning');
+    swal("Por favor, ingresa tu dirección de envío.", {
+      icon: "warning",
+    });
     return false;
   }
-  
   return true;
 }
 
-const mostrarAlerta = (mensaje, tipo) => {
-  swal(mensaje, {
-    icon: tipo,
-  });
-}
+const datosRegistro = [];
+const jsConfetti = new JSConfetti();
 
 const guardarDatos = (event) => {
   event.preventDefault();
-  
   if (validarFormulario()) {
     let nombre = document.getElementById('nombre').value;
     let correo = document.getElementById('correo').value;
-    let contrasena = document.getElementById('contrasena').value;
+    let contra = document.getElementById('contrasena').value;
     let telefono = document.getElementById('telefono').value;
-    let direccionEnvio = document.getElementById('direccionEnvio').value;
 
     // Crear un objeto con los datos a guardar
     const datos = {
       nombre: nombre,
       correo: correo,
-      contrasena: contrasena,
-      telefono: telefono,
-      direccionEnvio: direccionEnvio
+      contrasena: contra,
+      telefono: telefono
     };
-    
-    // Guardar los datos en el localStorage como una cadena JSON
-    const datosRegistro = localStorage.getItem('datosRegistro') ? JSON.parse(localStorage.getItem('datosRegistro')) : [];
     datosRegistro.push(datos);
+    console.log(datosRegistro);
+    // Guardar los datos en el localStorage como una cadena JSON
     localStorage.setItem('datosRegistro', JSON.stringify(datosRegistro));
-    
-    // Mostrar mensaje de éxito
-    mostrarAlerta('Registro exitoso. ¡Bienvenido!', 'success');
-    
-    // Limpiar el formulario
-    document.getElementById('nombre').value = '';
-    document.getElementById('correo').value = '';
-    document.getElementById('contrasena').value = '';
-    document.getElementById('confirContrasena').value = '';
-    document.getElementById('telefono').value = '';
-    document.getElementById('direccionEnvio').value = '';
+    confetti();
+    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+  }
+}
+
+const confetti = async () => {
+  try {
+    await jsConfetti.addConfetti({
+      emojis: ['🍧', '🍦', '🍨'],
+      emojiSize: 50,
+      confettiNumber: 50,
+    });
+  } catch (error) {
+    console.error(error);
   }
 }
 
 const mostrarContrasena = () => {
-  let contrasenaInput = document.getElementById('contrasena');
-  contrasenaInput.type = (contrasenaInput.type === 'password') ? 'text' : 'password';
+  let inputContrasena = document.getElementById('contrasena');
+
+  if (inputContrasena.type === 'password') {
+    inputContrasena.type = 'text';
+  } else {
+    inputContrasena.type = 'password';
+  }
 }
 
 const mostrarContrasena2 = () => {
-  let confirContrasenaInput = document.getElementById('confirContrasena');
-  confirContrasenaInput.type = (confirContrasenaInput.type === 'password') ? 'text' : 'password';
+  let inputConfirContrasena = document.getElementById('confirContrasena');
+  if (inputConfirContrasena.type === 'password') {
+    inputConfirContrasena.type = 'text';
+  } else {
+    inputConfirContrasena.type = 'password';
+  }
 }
+
+let inputs = document.querySelectorAll("form input");
+inputs.forEach(function (input) {
+  let span = document.createElement("span");
+  span.classList.add("valid-icon");
+  input.parentNode.insertBefore(span, input.nextSibling);
+});
