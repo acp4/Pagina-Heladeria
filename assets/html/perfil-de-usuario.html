@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
   <!--link para decorar el input-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
+  <link rel="stylesheet" href="../css/perfilUsuario.css">
   <link rel="stylesheet" href="../css/navbar.css">
   <title>Perfil de usuario</title>
 </head>
@@ -70,110 +70,66 @@
   </div>
 </nav>
 
+<div class="container container-round mt-5 mb-5 p-5">
+    <div class="col-lg-12">
+      <div class="container justify-content-between py-5 px-md-5 p-5">
+        <div class="container">
+          <div class="row text-center justify-content-center">
+            <div class="col col-sm-12">
+              <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
+              <h2>Perfil</h2>
+            </div>
+          </div>
+        </div>
 
-<h1>Cuenta</h1> 
+        <form >
+          <div class="form-group my-4">
+            <i class="fa-solid fa-user"></i>
+            <label for="nombre">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group my-4">
+            <i class="fa-solid fa-envelope"></i>
+            <label for="correo">Correo electrónico:</label>
+            <input type="email" class="form-control" id="correo" name="correo" required>
+          </div>
 
-<button><i class="fa-regular fa-image"></i></button> 
-<h2>Detalles personales</h2>
-<form>
-  
-  <div class="fa-solid"> 
-    <div class="col-lg-6 col-sm-12 my-lg-0 my-3">
-    <label for="nombre">Nombre:</label>
-    <i class="fa-solid fa-user"></i>
-    <input type="text" class="form-control" id="nombre" name="nombre" required> 
-    </div>
+          <div class="form-group my-4">
+            <i class="fa-solid fa-lock"></i>
+            <label for="contrasena">Contraseña:</label>
+            <div class="input-group">
+              <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+              <div class="input-group-append">
+              </div>
+            </div>
+          </div>
 
-  <div class="form-group mb-4"> 
-    <div class="col-lg-6 col-sm-12 my-lg-0 my-3">
-  <label for="correo">Correo electrónico:</label>
-  <i class="fa-solid fa-envelope"></i>
-  <input type="email" class="form-control" id="correo" name="correo" required>
-  </div>
+          <div class="form-group my-4">
+            <i class="fa-solid fa-phone"></i>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" class="form-control" id="telefono" name="telefono" required>
+          </div>
 
-  <div class="fa-solid my-4">
-    <label for="contrasena">Contraseña:</label>
-    <i class="fa-solid fa-lock"></i>
-    <div class="input-group">
-      <input type="password" class="form-control" id="contrasena" name="contrasena" required>
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
-            viewBox="0 0 16 16">
-            <path
-              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-            <path
-              d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-          </svg>
-        </button>
+          <div class="form-group my-4">
+            <i class="fa-solid fa-address-book"></i>
+            <label for="direccionEnvio">Dirección de envío:</label>
+            <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
+          </div>
+          <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-center mt-2">
+              <button id="registroBtn" type="submit" class="btn btn-dark btn-block mb-4">
+                Editar 
+              </button>
+              <a href="/index.html" class="btn btn-outline-dark btn-block mb-4 mx-4" target="_blank">
+                Guardar Cambios
+              </a>
+            </div>
+          </div>
       </div>
     </div>
-  </div>
-
-  <div class="fa-solid my-4">
-    <label for="confirContrasena">Confirmar Contraseña:</label>
-    <i class="fa-solid fa-lock"></i>
-    <div class="input-group">
-      <input type="password" class="form-control" id="confirContrasena" name="confirContrasena" required>
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena2()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
-            viewBox="0 0 16 16">
-            <path
-              d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-            <path
-              d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-          </svg>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group my-4">
-    <div class="col-lg-6 col-sm-12 my-lg-0 my-3">
-    <label for="telefono">Teléfono:</label>
-    <i class="fa-solid fa-phone"></i>
-    <input type="tel" class="form-control" id="telefono" name="telefono" required>
-  </div>
-
-  <div class="fa-solid my-4">
-    
-    <label for="direccionEnvio">Dirección de Envío:</label>
-    <i class="fa-solid fa-address-book"></i>
-    <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
-  </div>
-  <div class="row mt-4">
-    <div class="col-12 d-flex justify-content-center mt-2">
-      <button id="EditarBtn" type="submit" class="btn btn-dark btn-block mb-4"
-        onclick="guardarDatos(event)">
-        Editar
-      </button>
-      <a href="/index.html" class="btn btn-outline-dark btn-block mb-4 mx-4" target="_blank">
-        Guardar
-      </a>
-    </div>
+    </form>
   </div>
 </div>
-</div>
-</form>
-</div>
-</div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  
 
 
   <!--footer-->
@@ -191,22 +147,26 @@
           local 19, Unidad San Buenaventura, 56530 Ixtapaluca, Méx.
         </p>
         <p class="fs-6">Email: losreyesdelamichoacana@gmail.com</p>
-        <p>Telefono: +55 3026 3580</p>
+        <p>Teléfono: +55 3026 3580</p>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12 d-none d-lg-block">
         <h6 class="fw-bold">Navegación</h6>
         <ul class="navegacion p-0" style="list-style-type: none">
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-              style="color: #000000">Inicio</a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-              style="color: #000000">Acerca de nosotros</a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-              style="color: #000000">Contacto</a>
+            <a href="../../index.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+                style="color: #000000">Inicio</a>
+            </li>
+            <li>
+              <a href="./acerca-de-nosotros.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+                style="color: #000000">Acerca de nosotros</a>
+            </li>
+            <li>
+              <a href="./contactanos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+                style="color: #000000">Contacto</a>
+            </li>
+            <li>
+              <a href="./productos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+                style="color: #000000">Productos</a>
           </li>
           <li>
             <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
