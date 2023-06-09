@@ -59,6 +59,7 @@ function añadirAlCarrito(productId) {
 
     let nombre = product.nombre;
     let precio = product.precio;
+    let img = product.url;
 
     let carrito = localStorage.getItem('carrito');
     let productosCarrito = [];
@@ -67,7 +68,7 @@ function añadirAlCarrito(productId) {
       productosCarrito = JSON.parse(carrito);
     }
 
-    productosCarrito.push({ nombre, precio });
+    productosCarrito.push({ nombre, precio,img });
   
     localStorage.setItem('carrito', JSON.stringify(productosCarrito));
   
