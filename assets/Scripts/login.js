@@ -5,7 +5,7 @@ const login = (event)=>{
     let correo1 = document.getElementById("email").value;
     let contra1 = document.getElementById("contrasena").value;
     miStorage = window.localStorage;
-    let clave = miStorage.key(0);
+    let clave = miStorage.key(`datosRegistro`);
     let usuarios = JSON.parse(localStorage.getItem(clave));
     console.log(usuarios);
     let verificar=false;
@@ -15,10 +15,11 @@ const login = (event)=>{
          } 
       }
       if(verificar){       
+         window.location.href="../../index.html";
          swal( " Inicio de sesión ",{
             icon: "success",
            }); 
-           window.location.href="../../index.html";
+          
       }else{
         swal( " Usuario no existe, registrate ",{
           icon: "warning",
