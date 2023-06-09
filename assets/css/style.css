@@ -332,7 +332,91 @@ footer {
   transform: scale(1.4);
 }
 
+/*ESTILO DE CARRITO*/
 
+.texto-labels{
+  font-size: 1.5em;
+}
+
+ul.resumen-compra li {
+  list-style-type: none;
+}
+
+.icon-carrito{
+  width: auto;
+  height: 25px;
+}
+.boton-quitar{
+  color: #FFFFFF;
+  background-color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0px;
+  width: 100px;
+}
+
+.img-producto-card{
+  width: 150px;
+}
+
+.img-producto{
+  width: 250px;
+}
+
+.titulos-principal{
+  font-weight: 700;
+  font-size: 2.5em;
+}
+.sub-titulos{
+  font-weight: 700;
+  font-size: 2.0em;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.input-wrapper {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+
+input[type="number"] {
+  padding: 10px;
+  text-align: center;
+}
+
+.input-wrapper * {
+  border: none;
+  width: 50px;
+  flex: 1;
+}
+
+.input-wrapper button {
+  cursor: pointer;
+}
+
+.input-wrapper button:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.input-wrapper button:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+/*TERMINA CARRITO*/
 
 
 .modal-header {
@@ -466,3 +550,5 @@ footer {
   height: auto;
  
  } */
+
+ 
