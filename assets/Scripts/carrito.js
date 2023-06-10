@@ -3,12 +3,33 @@ let cartProducts = getProducts();
 const precioTotalProductos = document.getElementById("precio-total-productos"); 
 const precioEnvio = document.getElementById("precio-envio"); 
 const precioSubtotal = document.getElementById("precio-subtotal"); 
-let precioEnvioRandom = getRandomNumber(450, 150);
+let  precioEnvioRandom = 200;
 const btnContinuarCompra = document.getElementById('btn-continuar-compra');
+const emptyCarDiv = document.getElementById('empty-car');
+const formaDePagoDiv = document.getElementById('forma-de-pago');
+const resumenDeCompraDiv = document.getElementById('resumen-de-compra');
 
+if(cartProducts.length === 0 ){
+    emptyCart();
+}
+
+function emptyCart(){
+    precioTotalProductos.innerHTML = 'Aquí verás los importes de tu compra una vez que agregues productos.'
+    precioEnvio.style.display = 'none';
+    precioSubtotal.style.display = 'none';
+    formaDePagoDiv.style.display = 'none';
+    resumenDeCompraDiv.style.color = "#6e6b6b"
+    emptyCarDiv.classList.remove("d-none");
+    emptyCarDiv.classList.add("d-flex", "flex-column", "justify-content-center", "align-items-center");
+    emptyCarDiv.innerHTML = ` 
+    <img src="https://media0.giphy.com/media/sRGU6yWN6f51stv2Sz/giphy.gif?cid=6c09b95203b40962f2335d19419977590a4601fdc3d2ea62&ep=v1_internal_gifs_gifId&rid=giphy.gif&ct=s" width="150" alt="empty car">
+    <h3 class="mt-4">Tu carrito esta vacío</h3>
+    <button class="mt-4 boton-standard" onclick="window.location.href = './productos.html';">Descubrir productos</button>
+    `
+}
 
 function getProducts() {
-    return JSON.parse(localStorage.getItem('carrito')) || [];
+    return JSON.parse(localStorage.getItem('carrito')) || [] ;
 }
 updateCart();
 
@@ -17,6 +38,9 @@ function updateCart(){
     renderCartProducts();
     renderSubTotal();
     saveProductsToStorage(cartProducts);
+    if(cartProducts.length === 0 ){
+        emptyCart();
+    }
 }
 
 function renderSubTotal(){

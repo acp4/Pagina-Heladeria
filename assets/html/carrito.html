@@ -69,49 +69,56 @@
   </nav>
 
   <div class="container-fluid py-5 px-5">
-    <div class="row ">
-      <div class="col-lg-6 col-sm-12 col-md-12 ">
+    <div id="carrito-container-responsive" class="row ">
+      <div class="content-car col-lg-6 col-sm-12 col-md-12 ">
         <!-- División para sección de carrito de compras -->
         <h1><b>Carrito de compras</b></h1>
         <hr>
         <div class="container-fluid">
           <div class="row">
-            <div id="carrito-container" class="col-12 d-flex flex-column">
-              <!--Renderizar productos al carrito-container-->
-              <!-- <div class="d-flex gap-2 ">
-                <img src="https://i.postimg.cc/nh1x6F9K/helado-choco.png" alt="helado de chocolate"
-                  class="img-producto-card">
-                <div class="d-flex flex-column gap-3 justify-content-center">
-                  <h3>Helado de chocolate</h3>
-                  <div class="d-flex flex-row gap-5">
-                    <button class="boton-quitar">Quitar</button>
-                    <span class="input-wrapper">
-                      <button id="decrement">-</button>
-                      <input type="number" value="1" id="quantity" min="0" />
-                      <button id="increment">+</button>
-                    </span>
-                    <span class="texto-labels">$0</span>
+            <div class="col">
+              <div id="empty-car" class="d-none my-5">
+              </div>
+              <div id="carrito-container" class="col-12 d-flex flex-column">
+
+                <!--Renderizar productos al carrito-container-->
+                <!-- <div class="d-flex gap-2 ">
+                  <img src="https://i.postimg.cc/nh1x6F9K/helado-choco.png" alt="helado de chocolate"
+                    class="img-producto-card">
+                  <div class="d-flex flex-column gap-3 justify-content-center">
+                    <h3>Helado de chocolate</h3>
+                    <div class="d-flex flex-row gap-5">
+                      <button class="boton-quitar">Quitar</button>
+                      <span class="input-wrapper">
+                        <button id="decrement">-</button>
+                        <input type="number" value="1" id="quantity" min="0" />
+                        <button id="increment">+</button>
+                      </span>
+                      <span class="texto-labels">$0</span>
+                    </div>
                   </div>
-                </div>
-              </div> -->
+                </div> -->
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!-- Empieza resumen de compra -->
-      <div class="col-lg-6 col-sm-12 col-md-12 mt-4">
-
-        <h3 class="sub-titulos">Resumen de compra</h3>
-        <ul class="resumen-compra border border-dark rounded p-4 mt-5">
-          <li id="precio-total-productos">Subtotal (productos): $0</li>
-          <li id="precio-envio">Precio de envío: $0</li>
-        </ul>
-        <div class="d-flex justify-content-end">
-          <span class="h4 fw-bold" id="precio-subtotal">Subtotal $0</span>
+      <div class="content-car col-lg-6 col-sm-12 col-md-12 mt-4">
+        <div id="resumen-de-compra">
+          <h3 class="sub-titulos">Resumen de compra</h3>
+          <ul class="resumen-compra border border-dark rounded p-4 mt-5">
+            <li id="precio-total-productos">Subtotal (productos): $0</li>
+            <li id="precio-envio">Precio de envío: $0</li>
+          </ul>
+          <div class="d-flex justify-content-end">
+            <span class="h4 fw-bold" id="precio-subtotal">Subtotal $0</span>
+          </div>
         </div>
 
+
         <!-- Empieza forma de pago -->
-        <div>
+        <div id="forma-de-pago">
           <h3 class="sub-titulos">Forma de pago</h3>
           <ul class="list-unstyled mt-4 ">
             <div class="form-check">
@@ -134,7 +141,6 @@
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <!-- Division para seccion de otros productos relacionados -->
@@ -201,19 +207,19 @@
         <ul class="navegacion p-0" style="list-style-type: none">
           <li>
             <a href="../../index.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-            style="color: #000000">Inicio</a>
-        </li>
-        <li>
-          <a href="./acerca-de-nosotros.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-            style="color: #000000">Acerca de nosotros</a>
-        </li>
-        <li>
-          <a href="./contactanos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-            style="color: #000000">Contacto</a>
-        </li>
-        <li>
-          <a href="./productos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-            style="color: #000000">Productos</a>
+              style="color: #000000">Inicio</a>
+          </li>
+          <li>
+            <a href="./acerca-de-nosotros.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+              style="color: #000000">Acerca de nosotros</a>
+          </li>
+          <li>
+            <a href="./contactanos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+              style="color: #000000">Contacto</a>
+          </li>
+          <li>
+            <a href="./productos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+              style="color: #000000">Productos</a>
           </li>
         </ul>
       </div>

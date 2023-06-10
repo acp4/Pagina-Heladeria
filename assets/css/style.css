@@ -424,6 +424,23 @@ input[type="number"] {
   background-color: #000000;
 }
 
+@media only screen and (min-width: 768px) and (max-width:1300px) {
+
+  #carrito-container-responsive{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+  }
+  .content-car{
+    width: 100% !important;
+
+  }
+}
+
 /*TERMINA CARRITO*/
 
 
