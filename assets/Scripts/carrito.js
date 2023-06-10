@@ -1,16 +1,39 @@
 const carritoContainer = document.getElementById('carrito-container');
 let cartProducts = getProducts();
-const precioTotalProductos = document.getElementById("precio-total-productos");
+const precioTotalProductos = document.getElementById("precio-total-productos"); 
+const precioEnvio = document.getElementById("precio-envio"); 
+const precioSubtotal = document.getElementById("precio-subtotal"); 
+let precioEnvioRandom = getRandomNumber(450, 150);
+
 
 function getProducts() {
     return JSON.parse(localStorage.getItem('carrito')) || [];
 }
-
+updateCart();
 function updateCart(){
     renderCartProducts();
-    // renderSubTotal();
+    renderSubTotal();
     saveProductsToStorage(cartProducts);
 }
+function renderSubTotal(){
+    let totalPrice = 0;
+    let totalItems = 0;
+    
+    cartProducts.forEach((product)=>{
+        totalPrice += product.precio * product.cantidad;
+        totalItems += product.cantidad;
+        
+    });
+   
+    precioTotalProductos.innerHTML = `Subtotal (${totalItems} productos): $ ${totalPrice}`;
+    precioEnvio.innerHTML = `Precio de envío: $ ${precioEnvioRandom}`;
+    precioSubtotal.innerHTML = `Subtotal $ ${totalPrice + precioEnvioRandom}`
+}
+
+function getRandomNumber(min, max) {
+    // Generar un número aleatorio entre min (incluido) y max (excluido)
+    return Math.floor(Math.random() * (max - min) + min);
+  }
 
 // function renderCartProducts() {
 
@@ -101,7 +124,6 @@ function changeNumberOfUnits(action, productId){
     });
     updateCart();
 }
-
 
 
 function saveProductsToStorage(products) {
