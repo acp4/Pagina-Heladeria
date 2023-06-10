@@ -278,7 +278,7 @@ footer {
 }
 
 .nombre-producto {
-  font-size: 25px;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -333,6 +333,14 @@ footer {
 }
 
 /*ESTILO DE CARRITO*/
+.boton-standard{
+  color: #FFFFFF;
+  background-color: black;
+  padding: 15px 50px;
+  border-radius: 10px;
+  border: 0px;
+  width: auto;
+}
 
 .texto-labels{
   font-size: 1.5em;
@@ -414,6 +422,23 @@ input[type="number"] {
   border-bottom-right-radius: 10px;
   color: #ffffff;
   background-color: #000000;
+}
+
+@media only screen and (min-width: 768px) and (max-width:1300px) {
+
+  #carrito-container-responsive{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+  }
+  .content-car{
+    width: 100% !important;
+
+  }
 }
 
 /*TERMINA CARRITO*/
