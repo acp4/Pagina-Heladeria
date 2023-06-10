@@ -278,7 +278,7 @@ footer {
 }
 
 .nombre-producto {
-  font-size: 25px;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -333,6 +333,14 @@ footer {
 }
 
 /*ESTILO DE CARRITO*/
+.boton-standard{
+  color: #FFFFFF;
+  background-color: black;
+  padding: 15px 50px;
+  border-radius: 10px;
+  border: 0px;
+  width: auto;
+}
 
 .texto-labels{
   font-size: 1.5em;

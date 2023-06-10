@@ -4,17 +4,21 @@ const precioTotalProductos = document.getElementById("precio-total-productos");
 const precioEnvio = document.getElementById("precio-envio"); 
 const precioSubtotal = document.getElementById("precio-subtotal"); 
 let precioEnvioRandom = getRandomNumber(450, 150);
+const btnContinuarCompra = document.getElementById('btn-continuar-compra');
 
 
 function getProducts() {
     return JSON.parse(localStorage.getItem('carrito')) || [];
 }
 updateCart();
+
+
 function updateCart(){
     renderCartProducts();
     renderSubTotal();
     saveProductsToStorage(cartProducts);
 }
+
 function renderSubTotal(){
     let totalPrice = 0;
     let totalItems = 0;
@@ -31,37 +35,10 @@ function renderSubTotal(){
 }
 
 function getRandomNumber(min, max) {
-    // Generar un número aleatorio entre min (incluido) y max (excluido)
+    // Generar un número aleatorio para el precio del envio entre min (incluido) y max (excluido) 
     return Math.floor(Math.random() * (max - min) + min);
   }
 
-// function renderCartProducts() {
-
-//     carritoContainer.innerHTML = ""; // Limpiar cart-container
-//     cartProducts.forEach((element) => {
-//         // let product = document.createElement('div');
-//         // product.classList.add("d-flex", "gap-2");
-//         carritoContainer.innerHTML += `
-//         <div class="d-flex gap-2 ">
-//             <img src="${element.url}" alt="${element.nombre}"
-//                 class="img-producto-card">
-//                 <div class="d-flex flex-column gap-3 justify-content-center">
-//                     <h3>${element.nombre}</h3>
-//                     <div class="d-flex flex-row gap-5">
-//                         <button class="boton-quitar" onclick="removeProductFromCart(${element.id})">Quitar</button>
-//                         <span class="input-wrapper">
-//                         <button class="decrement" onclick="changeNumberOfUnits('minus', ${element.id})">-</button>
-//                         <input type="number" value="${element.cantidad}"/>
-//                         <button class="increment" onclick="changeNumberOfUnits('plus', ${element.id})">+</button>
-//                         </span>
-//                         <span class=" texto-labels">$ ${element.precio}</span>
-//                     </div>
-//                 </div>
-//             </div>`
-//         // carritoContainer.appendChild(product);
-//     });
-//     console.log(cartProducts);
-// }
 
 function renderCartProducts() {
     carritoContainer.innerHTML = ""; // Limpiar cart-container
@@ -72,7 +49,7 @@ function renderCartProducts() {
         productDiv.innerHTML = `
             <img src="${element.url}" alt="${element.nombre}" class="img-producto-card">
             <div class="d-flex flex-column gap-3 justify-content-center">
-                <h3>${element.nombre}</h3>
+                <h4 class="fw-bold">${element.nombre}</h4>
                 <div class="d-flex flex-row gap-5">
                     <button class="boton-quitar">Quitar</button>
                     <span class="input-wrapper">
@@ -133,5 +110,7 @@ function saveProductsToStorage(products) {
 
 renderCartProducts();
 
-
-
+ 
+  btnContinuarCompra.addEventListener('click', ()=>{
+    window.location.href = '../../index.html';
+  });
