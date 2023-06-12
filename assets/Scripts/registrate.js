@@ -82,20 +82,25 @@ const guardarDatos = (event) => {
     let correo = document.getElementById('correo').value;
     let contra = document.getElementById('contrasena').value;
     let telefono = document.getElementById('telefono').value;
-
+    let direccion = document.getElementById('direccionEnvio').value;
     // Crear un objeto con los datos a guardar
     const datos = {
-      nombre: nombre,
-      correo: correo,
-      contrasena:contra,
-      telefono: telefono
+      nombreUsuario: nombre,
+      correoUsuario: correo,
+      contraseña:contra,
+      telefono: telefono,
+      ubicacion: direccion
     };
+
     datosRegistro.push(datos);
     console.log(datosRegistro);
     // Guardar los datos en el localStorage como una cadena JSON
     localStorage.setItem('datosRegistro', JSON.stringify(datosRegistro));
+    // Solicitud Post
+    //cargarJSON(JSON.stringify(datos));
+    mostrarUsuarios();
     confetti(); 
-    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+    //setTimeout(() => { window.location.href = "../../index.html" }, 2000);
   }
 }
 
@@ -131,7 +136,21 @@ const mostrarContrasena2=()=> {
   }
 }
 
+function cargarJSON(datos) {
+  console.log (datos);
+  fetch('http://localhost:8080/api/usuarios/signup', {
+    method: "POST",
+    body: datos,
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })
+  .then(response => response.json()) 
+  .then(json => console.log(json));
+}
 
+function getUser() {
+  fetch('http://localhost:8080/api/usuarios')
+    .then(response => console.log(response));
+}
 
-
+getUser();
 
