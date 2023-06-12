@@ -1,5 +1,3 @@
-
-
 const validarFormulario = () => {
   let nombre = document.getElementById('nombre').value;
   let correo = document.getElementById('correo').value;
@@ -16,7 +14,7 @@ const validarFormulario = () => {
 
   // Validación del nombre
   if (nombre.trim() === '') {
-    swal( " Por favor, ingresa tu nombre. ",{
+    swal("Por favor, ingresa tu nombre.", {
       icon: "warning",
     });
     return false;
@@ -24,7 +22,7 @@ const validarFormulario = () => {
 
   // Validación del correo electrónico
   if (!formatoCorreo.test(correo)) {
-    swal( " Por favor, ingresa un correo electrónico válido. ",{
+    swal("Por favor, ingresa un correo electrónico válido.", {
       icon: "warning",
     });
     return false;
@@ -32,7 +30,7 @@ const validarFormulario = () => {
 
   // Validación de la contraseña
   if (!formatoContrasena.test(contrasena)) {
-    swal( " Por favor, ingresa una contraseña de al menos 6 caracteres. ",{
+    swal("Por favor, ingresa una contraseña de al menos 6 caracteres.", {
       icon: "warning",
     });
     return false;
@@ -40,7 +38,7 @@ const validarFormulario = () => {
 
   // Validación de la confirmación de contraseña
   if (contrasena !== confirContrasena) {
-    swal( " Las contraseñas no coinciden. Por favor, verifica. ",{
+    swal("Las contraseñas no coinciden. Por favor, verifica.", {
       icon: "warning",
     });
     return false;
@@ -48,7 +46,7 @@ const validarFormulario = () => {
 
   // Validación del teléfono
   if (telefono.trim() === '') {
-    swal( " Por favor, ingresa tu número de teléfono. ",{
+    swal("Por favor, ingresa tu número de teléfono.", {
       icon: "warning",
     });
     return false;
@@ -56,7 +54,7 @@ const validarFormulario = () => {
 
   // Validación del número de teléfono (10 dígitos)
   if (telefono.length !== 10 || !(/^\d+$/.test(telefono))) {
-    swal( " Por favor, ingresa un número de teléfono válido de 10 dígitos. ",{
+    swal("Por favor, ingresa un número de teléfono válido de 10 dígitos.", {
       icon: "warning",
     });
     return false;
@@ -64,7 +62,7 @@ const validarFormulario = () => {
 
   // Validación de la dirección de envío
   if (direccionEnvio.trim() === '') {
-    swal( " Por favor, ingresa tu dirección de envío. ",{
+    swal("Por favor, ingresa tu dirección de envío.", {
       icon: "warning",
     });
     return false;
@@ -116,7 +114,7 @@ const confetti = async () => {
   }
 }
 
-const mostrarContrasena=()=> {
+const mostrarContrasena = () => {
   let inputContrasena = document.getElementById('contrasena');
 
   if (inputContrasena.type === 'password') {
@@ -124,10 +122,9 @@ const mostrarContrasena=()=> {
   } else {
     inputContrasena.type = 'password';
   }
-
 }
 
-const mostrarContrasena2=()=> {
+const mostrarContrasena2 = () => {
   let inputConfirContrasena = document.getElementById('confirContrasena');
   if (inputConfirContrasena.type === 'password') {
     inputConfirContrasena.type = 'text';
@@ -154,3 +151,9 @@ function getUser() {
 
 getUser();
 
+let inputs = document.querySelectorAll("form input");
+inputs.forEach(function (input) {
+  let span = document.createElement("span");
+  span.classList.add("valid-icon");
+  input.parentNode.insertBefore(span, input.nextSibling);
+});
