@@ -70,7 +70,6 @@ const validarFormulario = () => {
   return true;
 }
 
-const datosRegistro = [];
 const jsConfetti = new JSConfetti();
 
 const guardarDatos = (event) => {
@@ -84,21 +83,15 @@ const guardarDatos = (event) => {
     // Crear un objeto con los datos a guardar
     const datos = {
       nombreUsuario: nombre,
-      correoUsuario: correo,
+      emailUsuario: correo,
       contraseña:contra,
       telefono: telefono,
       ubicacion: direccion
     };
-
-    datosRegistro.push(datos);
-    console.log(datosRegistro);
-    // Guardar los datos en el localStorage como una cadena JSON
-    localStorage.setItem('datosRegistro', JSON.stringify(datosRegistro));
     // Solicitud Post
-    //cargarJSON(JSON.stringify(datos));
-    mostrarUsuarios();
+    crearUsuario(JSON.stringify(datos));
     confetti(); 
-    //setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
   }
 }
 
@@ -133,7 +126,7 @@ const mostrarContrasena2 = () => {
   }
 }
 
-function cargarJSON(datos) {
+function crearUsuario(datos) {
   console.log (datos);
   fetch('http://localhost:8080/api/usuarios/signup', {
     method: "POST",
@@ -141,15 +134,9 @@ function cargarJSON(datos) {
     headers: {"Content-type": "application/json; charset=UTF-8"}
   })
   .then(response => response.json()) 
-  .then(json => console.log(json));
+    .then(json => console.log(json))
+    .catch(error=>console.log(error));
 }
-
-function getUser() {
-  fetch('http://localhost:8080/api/usuarios')
-    .then(response => console.log(response));
-}
-
-getUser();
 
 let inputs = document.querySelectorAll("form input");
 inputs.forEach(function (input) {
@@ -157,3 +144,5 @@ inputs.forEach(function (input) {
   span.classList.add("valid-icon");
   input.parentNode.insertBefore(span, input.nextSibling);
 });
+
+
