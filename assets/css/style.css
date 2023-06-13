@@ -575,5 +575,32 @@ input[type="number"] {
   height: auto;
  
  } */
+<<<<<<< HEAD
 
  
+=======
+ .valid-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("ruta_de_la_imagen_palomita");
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.form-control.valid-icon {
+  padding-right: 30px;
+}
+
+.form-group .valid-icon {
+  pointer-events: none;
+}
+
+.form-group .form-control:valid + .valid-icon {
+  opacity: 1;
+}
+>>>>>>> 8b7672976d0bef566db72ff4d478bbd4ed961999
