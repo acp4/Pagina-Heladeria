@@ -534,10 +534,15 @@ input[type="number"] {
   /* max-height:1599px;
   max-width: 932px;  */
   border-radius:10px;
- 
- 
+
   
 }
+
+.titulo-categorias{
+  text-decoration: none;
+  
+}
+
 
 /* .cont-mas {
 
@@ -575,10 +580,6 @@ input[type="number"] {
   height: auto;
  
  } */
-<<<<<<< HEAD
-
- 
-=======
  .valid-icon {
   position: absolute;
   top: 50%;
@@ -603,4 +604,3 @@ input[type="number"] {
 .form-group .form-control:valid + .valid-icon {
   opacity: 1;
 }
->>>>>>> 8b7672976d0bef566db72ff4d478bbd4ed961999
