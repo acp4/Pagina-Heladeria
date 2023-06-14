@@ -9,7 +9,9 @@
 
 body {
   background: linear-gradient(to top, #FDE1B9, #FCFCEC);
+  cursor:url(../image/img-inicio/cursorHelado.png), auto;
 }
+
 
 /* loading  */
 .loader{
@@ -206,6 +208,15 @@ footer {
 }
 
 /*Aqui empiza log in*/
+.imagen-form{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.logo-icon-page{
+  width: 200px;
+ 
+}
 
 .container-round {
   border-radius: 10px;
@@ -240,6 +251,11 @@ footer {
   /* Quitar la subrayado */
 }
 
+/*Arreglar que cursor sea pointer en imagenes*/
+.image-container-products {
+  cursor:pointer;
+}
+
 .link-no-underline,
 .link-no-underline-2 {
   color: inherit;
@@ -269,7 +285,7 @@ footer {
 }
 
 .nombre-producto {
-  font-size: 25px;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -323,7 +339,116 @@ footer {
   transform: scale(1.4);
 }
 
+/*ESTILO DE CARRITO*/
+.boton-standard{
+  color: #FFFFFF;
+  background-color: black;
+  padding: 15px 50px;
+  border-radius: 10px;
+  border: 0px;
+  width: auto;
+}
 
+.texto-labels{
+  font-size: 1.5em;
+}
+
+ul.resumen-compra li {
+  list-style-type: none;
+}
+
+.icon-carrito{
+  width: auto;
+  height: 25px;
+}
+.boton-quitar{
+  color: #FFFFFF;
+  background-color: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 0px;
+  width: 100px;
+}
+
+.img-producto-card{
+  width: 150px;
+}
+
+.img-producto{
+  width: 250px;
+}
+
+.titulos-principal{
+  font-weight: 700;
+  font-size: 2.5em;
+}
+.sub-titulos{
+  font-weight: 700;
+  font-size: 2.0em;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.input-wrapper {
+  width: 150px;
+  height: 40px;
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+
+input[type="number"] {
+  padding: 10px;
+  text-align: center;
+}
+
+.input-wrapper * {
+  border: none;
+  width: 50px;
+  flex: 1;
+}
+
+.input-wrapper button {
+  cursor: pointer;
+}
+
+.input-wrapper button:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.input-wrapper button:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+@media only screen and (min-width: 768px) and (max-width:1300px) {
+
+  #carrito-container-responsive{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+  }
+  .content-car{
+    width: 100% !important;
+
+  }
+}
+
+/*TERMINA CARRITO*/
 
 
 .modal-header {
@@ -412,21 +537,28 @@ footer {
 
 /* STYLE PRINCIPAL*/
 
-.cont-mas img {
-
-  max-height: 500px;
-  width: 30%;
-  border-radius: 10px;
+.cont-mas img{
+  /* max-height:1599px;
+  max-width: 932px;  */
+  border-radius:10px;
+ 
+ 
+  
 }
 
-.cont-mas {
-  height: 500px;
-}
+/* .cont-mas {
 
-.img-mas-vendido {
-  max-width: 300px;
-  height: 300px;
-  object-fit: fill;
+  height: 500px!important; 
+  width: 200px;
+  border:5px solid red; 
+  
+}   */
+
+.img-mas-vendido{
+ max-width:300px; 
+ border-radius: 10px;
+ height:300px;
+ object-fit:fill;
 }
 
 .cont-mas-vendido {
@@ -437,3 +569,18 @@ footer {
   font-weight: 700;
   font-size: 2.5em;
 }
+
+@media only screen and (min-width: 768px) and (max-width:1300px) {
+  .img-mas-vendido{
+    width: 150px;
+    height: 150px;
+  }
+
+ }
+
+ /* .car-descuentos{
+  height: auto;
+ 
+ } */
+
+ 
