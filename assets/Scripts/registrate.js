@@ -91,7 +91,7 @@ const guardarDatos = (event) => {
     // Solicitud Post
     crearUsuario(JSON.stringify(datos));
     confetti(); 
-    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+    setTimeout(() => { window.location.href = "./login.html" }, 2000);
   }
 }
 
@@ -144,5 +144,4 @@ inputs.forEach(function (input) {
   span.classList.add("valid-icon");
   input.parentNode.insertBefore(span, input.nextSibling);
 });
-
 
