@@ -75,41 +75,42 @@
 
 
   <!--Sign-in-->
-
   <div class="container container-round justify-content-center mt-5 mb-5">
     <div class="row">
-      <div class="col-lg-6 d-none d-lg-flex p-0">
+      <div class="col-lg-6 d-none justify-content-center d-lg-flex p-0">
         <img src="../image/imgs-log-in/helado.png " alt="helado"
-          class="w-100 imagen-form" />
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
       </div>
       <div class="col-lg-6">
-        <div class="card-body py-5 px-md-5 p-5">
-          <div class="container">
-            <div class="row text-center justify-content-center">
-              <div class="col col-sm-12">
-                <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
-                <h2>Regístrate</h2>
-              </div>
-            </div>
-          </div>
-
+        <div class="card-body justify-content-center py-5 px-md-5 p-5">
+          <div class="logo text-center">
+            <img src="../image/imgs-navbar/logo.png" alt="logo" class="img-fluid" width="200px">
+            <h2>Regístrate</h2>
+          </div><br><br>
           <form>
             <div class="form-group my-4">
               <i class="fa-solid fa-user"></i>
               <label for="nombre">Nombre:</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" required>
+              <div class="input-group">
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <span class="valid-icon"></span>
+              </div>
             </div>
             <div class="form-group my-4">
               <i class="fa-solid fa-envelope"></i>
               <label for="correo">Correo electrónico:</label>
-              <input type="email" class="form-control" id="correo" name="correo" required>
+              <div class="input-group">
+                <input type="email" class="form-control" id="correo" name="correo" required>
+                <span class="valid-icon"></span>
+              </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-lock"></i>
               <label for="contrasena">Contraseña:</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                <span class="valid-icon"></span>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
@@ -123,12 +124,13 @@
                 </div>
               </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-lock"></i>
               <label for="confirContrasena">Confirmar Contraseña:</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="confirContrasena" name="confirContrasena" required>
+                <span class="valid-icon"></span>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena2()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
@@ -142,22 +144,28 @@
                 </div>
               </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-phone"></i>
               <label for="telefono">Teléfono:</label>
-              <input type="tel" class="form-control" id="telefono" name="telefono" required>
+              <div class="input-group">
+                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                <span class="valid-icon"></span>
+              </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-address-book"></i>
-              <label for="direccionEnvio">Dirección de envío:</label>
-              <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
+              <label for="direccionEnvio">Dirección de Envío:</label>
+              <div class="input-group">
+                <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
+                <span class="valid-icon"></span>
+              </div>
             </div>
+  
             <div class="row mt-4">
               <div class="col-12 d-flex justify-content-center mt-2">
-                <button id="registroBtn" type="submit" class="btn btn-dark btn-block mb-4"
-                  onclick="guardarDatos(event)">
+                <button id="registroBtn" type="submit" class="btn btn-dark btn-block mb-4" onclick="guardarDatos(event)">
                   Registrarse
                 </button>
                 <a href="/index.html" class="btn btn-outline-dark btn-block mb-4 mx-4" target="_blank">
@@ -165,13 +173,12 @@
                 </a>
               </div>
             </div>
+          </form>
         </div>
       </div>
-      </form>
     </div>
   </div>
-
-
+  
   <!--footer-->
   <footer>
     <div class="row p-5 mt-4 justify-content-center text-center">

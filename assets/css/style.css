@@ -15,15 +15,12 @@ body {
 }
 
 
-<<<<<<< HEAD
-=======
 
 .productos-inicio:hover {
   transform: scale(1.4); 
    transition: transform .5s;
 }
 
->>>>>>> main
 /* loading  */
 .loader{
   background-image: url('../image/img-inicio/loader.gif');
@@ -552,10 +549,15 @@ input[type="number"] {
   /* max-height:1599px;
   max-width: 932px;  */
   border-radius:10px;
- 
- 
+
   
 }
+
+.titulo-categorias{
+  text-decoration: none;
+  
+}
+
 
 /* .cont-mas {
 
@@ -593,8 +595,27 @@ input[type="number"] {
   height: auto;
  
  } */
+ .valid-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("ruta_de_la_imagen_palomita");
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-<<<<<<< HEAD
- 
-=======
->>>>>>> main
+.form-control.valid-icon {
+  padding-right: 30px;
+}
+
+.form-group .valid-icon {
+  pointer-events: none;
+}
+
+.form-group .form-control:valid + .valid-icon {
+  opacity: 1;
+}
