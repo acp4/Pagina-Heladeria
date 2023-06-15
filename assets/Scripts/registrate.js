@@ -1,3 +1,4 @@
+let logStatus= false;
 const validarFormulario = () => {
   let nombre = document.getElementById('nombre').value;
   let correo = document.getElementById('correo').value;
@@ -91,9 +92,13 @@ const guardarDatos = (event) => {
     // Solicitud Post
     crearUsuario(JSON.stringify(datos));
     confetti(); 
-    setTimeout(() => { window.location.href = "./login.html" }, 2000);
+    localStorage.setItem('LogStatus', JSON.stringify(true));
+    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+    //setTimeout(() => { window.location.href = "./login.html" }, 2000);
   }
 }
+
+
 
 const confetti = async () => {
   try {

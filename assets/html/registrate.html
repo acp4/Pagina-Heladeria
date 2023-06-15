@@ -56,7 +56,8 @@
             </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./login.html">Log in</a>
+            <a class="nav-link" id="log-status-in" aria-current="page" href="./login.html">Log in</a>
+            <a class="nav-link d-none" id="log-status-out" aria-current="page" href="./login.html" onclick="setLogStatusFalse()">Log out</a>
           </li>
           <li class="nav-item">
             <div class="nav-bar-icons">
@@ -83,9 +84,11 @@
       </div>
       <div class="col-lg-6">
         <div class="card-body justify-content-center py-5 px-md-5 p-5">
-          <div class="logo text-center">
-            <img src="../image/imgs-navbar/logo.png" alt="logo" class="img-fluid" width="200px">
-            <h2>Regístrate</h2>
+          <div class="row mb-2 text-center justify-content-center">
+            <div class="col">
+              <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
+              <h2>Regístrate</h2>
+            </div>
           </div><br><br>
           <form>
             <div class="form-group my-4">
@@ -254,6 +257,7 @@
 
 
   <script src="../Scripts/loading.js"></script>
+  <script src="../Scripts/log.js"></script>
   <!-- Script de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

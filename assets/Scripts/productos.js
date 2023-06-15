@@ -86,23 +86,43 @@ function añadirAlCarrito(productId) {
 
 // ---------------------Funcion MODAL
 
-async function openModal(productId) {
+/* async function openModal(productId) {
   let modal = document.getElementById('myModal');
   let descripcionProducto1 = document.getElementById('descripcion-producto');
-
+  productId=productId;
   // Find the product by its ID
-  const url =`http://localhost:8080/api/productos/${productId}`;
+  const url =`http://backend-pagina-heladeria-production.up.railway.app/api/productos`; ///${productId}
+  
   let product = await fetch(url).then(response => response.json());
-
-  // Update the modal content
+  then data => response.json());
+  // Update the modal content 
+  console.log(product);
+  let descripcion = product.productId;
+  console.log(descripcion);
   document.getElementById('nombre-producto').textContent = product.nombreProducto;
   descripcionProducto1.textContent = product.descripcionProducto;
 
   modal.style.display = 'block';
 }
+ */
+async function openModal(productId) {
+  let productIdMin = productId-1;
+  let modal = document.getElementById('myModal');
+ 
+  const url = `http://backend-pagina-heladeria-production.up.railway.app/api/productos`;
+  
+  let product = await fetch(url).then(response => response.json());
+  console.log(product);
+  // console.log(descripcion);
+  document.getElementById('descripcion-producto').textContent = product[productIdMin].descripcionProducto;
+  document.getElementById('nombre-producto').textContent = product[productIdMin].nombreProducto;
+
+  modal.style.display = 'block';
+}
+
 
 function getProductsFetch () {
-  const url = 'http://localhost:8080/api/productos'
+  const url = 'http://backend-pagina-heladeria-production.up.railway.app/api/productos'
 
  fetch(url)
    .then(response => response.json())

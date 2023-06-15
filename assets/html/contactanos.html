@@ -55,7 +55,8 @@
             </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./login.html">Log in</a>
+            <a class="nav-link" id="log-status-in" aria-current="page" href="./login.html">Log in</a>
+            <a class="nav-link d-none" id="log-status-out" aria-current="page" href="./login.html" onclick="setLogStatusFalse()">Log out</a>
           </li>
           <li class="nav-item">
             <div class="nav-bar-icons">
@@ -82,7 +83,7 @@
           alt="pila de helados" />
       </div>
       <div class="col-lg-6 p-5">
-        <form>
+        <form action="https://formsubmit.co/c8073e1e302d6e6b4a631557c141812a" method="POST">
           <div class="row text-center">
             <div class="col mt-5 mb-5">
               <h1>Contáctanos</h1>
@@ -96,26 +97,26 @@
               <div class="form-outline">
 
                 <label class="form-label" for="nombre"><i class="fa-solid fa-user"></i> Nombre:</label>
-                <input type="text" id="nombre" class="form-control" required />
+                <input type="text" id="nombre" name="Nombre" class="form-control" required />
               </div>
             </div>
             <div class="col-lg-6 col-sm-12 my-lg-0 my-3">
               <div class="form-outline">
                 <label class="form-label" for="email"><i class="fa-solid fa-envelope"></i> Email:</label>
-                <input type="email" id="email" class="form-control" required />
+                <input type="email" id="email"  name="Email" class="form-control" required />
               </div>
             </div>
           </div>
           <div class="col-sm-12">
             <div class="form-outline mb-3">
               <label class="form-label" for="tema"><i class="fa-brands fa-twitter"></i> Tema:</label>
-              <input type="text" id="tema" class="form-control" required />
+              <input type="text" id="tema"  name="Tema o asunto" class="form-control" required />
             </div>
           </div>
           <div class="col-sm-12">
             <div class="form-outline mb-3">
               <label class="form-label" for="mensaje"><i class="fa-solid fa-message"></i> Mensaje:</label>
-              <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+              <textarea class="form-control" name="Mensaje" id="mensaje" rows="4" required></textarea>
             </div>
           </div>
           <div class="col-sm-12 mt-4">
@@ -124,6 +125,8 @@
               Enviar
             </button>
           </div>
+          <input type="hidden" name="_next" value="https://acp4.github.io/Pagina-Heladeria/index.html">
+          <input type="hidden" name="_captcha" value="false">
         </form>
       </div>
     </div>
@@ -200,7 +203,7 @@
       </div>
     </div>
   </footer>
-
+  <script src="../Scripts/log.js"></script>
   <script src="../Scripts/loading.js"></script>
   <script src="../Scripts/buscar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
