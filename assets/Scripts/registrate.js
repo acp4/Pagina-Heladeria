@@ -127,7 +127,6 @@ const mostrarContrasena2 = () => {
 }
 
 function crearUsuario(datos) {
-  console.log (datos);
   fetch('https://backend-pagina-heladeria-production.up.railway.app/api/usuarios/signup', {
     method: "POST",
     body: datos,
