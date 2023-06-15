@@ -121,10 +121,10 @@ async function openModal(productId) {
 }
 
 
-function getProductsFetch () {
+async function getProductsFetch () {
   const url = 'http://backend-pagina-heladeria-production.up.railway.app/api/productos'
 
- fetch(url)
+await fetch(url)
    .then(response => response.json())
    .then(productos =>imprimirProductos(productos));
 }
