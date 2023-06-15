@@ -109,7 +109,7 @@ async function openModal(productId) {
   let productIdMin = productId-1;
   let modal = document.getElementById('myModal');
  
-  const url = `http://backend-pagina-heladeria-production.up.railway.app/api/productos`;
+  const url = `https://backend-pagina-heladeria-production.up.railway.app/api/productos`;
   
   let product = await fetch(url).then(response => response.json());
   console.log(product);
@@ -122,7 +122,7 @@ async function openModal(productId) {
 
 
 async function getProductsFetch () {
-  const url = 'http://backend-pagina-heladeria-production.up.railway.app/api/productos'
+  const url = 'https://backend-pagina-heladeria-production.up.railway.app/api/productos'
 
 await fetch(url)
    .then(response => response.json())
