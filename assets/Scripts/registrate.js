@@ -91,9 +91,6 @@ const guardarDatos = (event) => {
     };
     // Solicitud Post
     crearUsuario(JSON.stringify(datos));
-    confetti(); 
-    localStorage.setItem('LogStatus', JSON.stringify(true));
-    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
     //setTimeout(() => { window.location.href = "./login.html" }, 2000);
   }
 }
@@ -139,8 +136,12 @@ function crearUsuario(datos) {
     headers: {"Content-type": "application/json; charset=UTF-8"}
   })
   .then(response => response.json()) 
-    .then(json => console.log(json))
-    .catch(error=>console.log(error));
+    .then(() => {confetti(); 
+      localStorage.setItem('LogStatus', JSON.stringify(true));
+      setTimeout(() => { window.location.href = "../../index.html" }, 2000);})
+    .catch(() => swal(`El correo electrónico ya está registrado.`, {
+      icon: "warning",
+    }));
 }
 
 let inputs = document.querySelectorAll("form input");
