@@ -128,7 +128,7 @@ const mostrarContrasena2 = () => {
 
 function crearUsuario(datos) {
   console.log (datos);
-  fetch('http://localhost:8080/api/usuarios/signup', {
+  fetch('https://backend-pagina-heladeria-production.up.railway.app/api/usuarios/signup', {
     method: "POST",
     body: datos,
     headers: {"Content-type": "application/json; charset=UTF-8"}

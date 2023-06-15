@@ -8,7 +8,7 @@ const aguasContenedor = document.getElementById('contenedor-aguas');
 const API = async () => {
 
   let datos = localStorage.getItem("busuedaLosReyes");
-  await fetch(`http://localhost:8080/api/productos/buscar/${datos}`, {
+  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/buscar/${datos}`, {
   })
     .then(response => response.json())
     .then(productos => {
@@ -110,7 +110,7 @@ async function openModal(productId) {
   let descripcionProducto1 = document.getElementById('descripcion-producto');
 
   // Find the product by its ID
-  const url =`http://localhost:8080/api/productos/${productId}`;
+  const url =`https://backend-pagina-heladeria-production.up.railway.app/api/productos/${productId}`;
   let product = await fetch(url).then(response => response.json());
 
   // Update the modal content
