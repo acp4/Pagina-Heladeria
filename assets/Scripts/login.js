@@ -20,7 +20,7 @@ const comparacionLogin = (correo1,contra1,usuarios)=>{
   }
   if (verificar) {     
     confetti(); 
-//   setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
   }else{
     swal( " Usuario no existe, registrate ",{
       icon: "warning",
