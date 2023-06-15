@@ -91,7 +91,7 @@ const guardarDatos = (event) => {
     // Solicitud Post
     crearUsuario(JSON.stringify(datos));
     confetti(); 
-    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+    setTimeout(() => { window.location.href = "./login.html" }, 2000);
   }
 }
 
@@ -128,7 +128,7 @@ const mostrarContrasena2 = () => {
 
 function crearUsuario(datos) {
   console.log (datos);
-  fetch('http://localhost:8080/api/usuarios/signup', {
+  fetch('https://backend-pagina-heladeria-production.up.railway.app/api/usuarios/signup', {
     method: "POST",
     body: datos,
     headers: {"Content-type": "application/json; charset=UTF-8"}
@@ -144,5 +144,4 @@ inputs.forEach(function (input) {
   span.classList.add("valid-icon");
   input.parentNode.insertBefore(span, input.nextSibling);
 });
-
 

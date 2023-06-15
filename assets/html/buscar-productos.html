@@ -6,19 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/navbar.css">
-  <link rel="shortcut icon" href="../image/img-inicio/LogoNavegador.png">
-
+  <!-- Modal bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
   <!--Bootstrap icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
-  <!--link para decorar el input-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="../css/perfilUsuario.css">
+ 
   <link rel="stylesheet" href="../css/navbar.css">
-  <title>Perfil de usuario</title>
+  <title>Productos</title>
 </head>
 
 <body>
@@ -73,66 +70,91 @@
   </div>
 </nav>
 
-<div class="container container-round mt-5 mb-5 p-5">
-    <div class="col-lg-12">
-      <div class="container justify-content-between py-5 px-md-5 p-5">
-        <div class="container">
-          <div class="row text-center justify-content-center">
-            <div class="col col-sm-12">
-              <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
-              <h2>Perfil</h2>
-            </div>
-          </div>
+
+
+
+<div class="container" id="contenedor-productosHTML">
+  <div class="row">
+    <div class="col-3 mt-4" id="contenedor-categoria">
+      <h3 id="titulo-categorias"> Categoría </h3>
+      <br>
+      <ul id="links-productos" class="list-unstyled">
+        <a href="#titulo-helado" class="text-decoration-none link-no-underline"> <li> Helados</li></a>
+        <a href="#titulo-heladoP" class="text-decoration-none link-no-underline"><li> Helados Premium</li></a>
+        <a href="#titulo-paleta" class="text-decoration-none link-no-underline"><li>Paletas</li></a>
+        <a href="#titulo-agua" class="text-decoration-none link-no-underline"><li> Aguas</li></a>
+      </ul>
+    </div>
+
+
+    <div class="col-sm-12 col-md-12 col-lg-9 "> <!--División columna de todos los productos  -->
+
+        <!-- Empieza CATEGORIA OCULTA -->
+      <div id="categoria-responsive" class="row text-center">
+        <div class="col-12 mt-4" id="contenedor-categoria-responsive">
+          <h3 id="titulo-categorias-responsive"> Categoría </h3>
+        </div>
+        <div class="row justify-content-around p-5">
+          <button type="button" class="boton-categoria btn col-sm-2 mb-2"><a href="#titulo-helado" class="text-decoration-none link-no-underline-2">Helados</a></button> 
+          <button type="button" class="boton-categoria btn  col-sm-2  mb-2"><a href="#titulo-heladoP" class="text-decoration-none link-no-underline-2">Helados Premium</a></button> 
+          <button type="button" class="boton-categoria btn  col-sm-2  mb-2"><a href="#titulo-paleta" class="text-decoration-none link-no-underline-2">Paletas</a></button>
+          <button type="button" class="boton-categoria btn col-sm-2"> <a href="#titulo-agua" class="text-decoration-none link-no-underline-2">Agua</a></button>
         </div>
 
-        <form >
-          <div class="form-group my-4">
-            <i class="fa-solid fa-user"></i>
-            <label for="nombre">Nombre:</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
-          </div>
-          <div class="form-group my-4">
-            <i class="fa-solid fa-envelope"></i>
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" class="form-control" id="correo" name="correo" required>
-          </div>
+      </div>  <!-- Acaba CATEGORIA OCULTA -->
 
-          <div class="form-group my-4">
-            <i class="fa-solid fa-lock"></i>
-            <label for="contrasena">Contraseña:</label>
-            <div class="input-group">
-              <input type="password" class="form-control" id="contrasena" name="contrasena" required>
-              <div class="input-group-append">
-              </div>
-            </div>
-          </div>
 
-          <div class="form-group my-4">
-            <i class="fa-solid fa-phone"></i>
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" class="form-control" id="telefono" name="telefono" required>
-          </div>
 
-          <div class="form-group my-4">
-            <i class="fa-solid fa-address-book"></i>
-            <label for="direccionEnvio">Dirección de envío:</label>
-            <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
-          </div>
-          <div class="row mt-4">
-            <div class="col-12 d-flex justify-content-center mt-2">
-              <button id="registroBtn" type="submit" class="btn btn-dark btn-block mb-4">
-                Editar 
-              </button>
-              <a href="/index.html" class="btn btn-outline-dark btn-block mb-4 mx-4" target="_blank">
-                Guardar Cambios
-              </a>
-            </div>
-          </div>
+      <div> <h2 id="datos-buscados" class="titulo-productos mt-3 mb-2"></h2></div>
+      <div > <!-- División para seccion helados -->
+        <h1 id="titulo-helado" class="titulo-productos mt-3 mb-2">Helados</h1><hr>
+        <!-- Esto tiene que llenarse con JavaS-->
+        <div id="contenedor-helados" class="contenedor-productos row"> 
+        </div>
+      </div>
+
+      <div > <!-- División para seccion helados -->
+        <h1 id="titulo-heladoP" class="titulo-productos mt-5 mb-2">Helados Premium</h1><hr>
+        <div id="contenedor-helados-premium" class="contenedor-productos row" ></div>
+      </div>
+      
+      <!-- División para seccion paletas -->
+      <div > 
+        <h1 id="titulo-paleta" class="titulo-productos mt-5 mb-2">Paletas</h1><hr>
+        <div id="contenedor-paletas" class="contenedor-productos row"></div>
+      </div>
+
+       <!-- División para seccion aguas -->
+      <div > 
+        <h1 id="titulo-agua" class="titulo-productos mt-5 mb-2">Aguas</h1><hr>
+        <div id="contenedor-aguas" class="contenedor-productos row"></div>
       </div>
     </div>
-    </form>
   </div>
 </div>
+
+
+  <!-- Aquí es lo del MODAL -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content custom-modal">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">Detalles del producto</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <h3 id="nombre-producto"></h3>
+          <p id="descripcion-producto"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 
   <!--footer-->
@@ -157,23 +179,19 @@
         <ul class="navegacion p-0" style="list-style-type: none">
           <li>
             <a href="../../index.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-                style="color: #000000">Inicio</a>
-            </li>
-            <li>
-              <a href="./acerca-de-nosotros.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-                style="color: #000000">Acerca de nosotros</a>
-            </li>
-            <li>
-              <a href="./contactanos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-                style="color: #000000">Contacto</a>
-            </li>
-            <li>
-              <a href="./productos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-                style="color: #000000">Productos</a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
-              style="color: #000000">Productos</a>
+            style="color: #000000">Inicio</a>
+        </li>
+        <li>
+          <a href="./acerca-de-nosotros.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            style="color: #000000">Acerca de nosotros</a>
+        </li>
+        <li>
+          <a href="./contactanos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            style="color: #000000">Contacto</a>
+        </li>
+        <li>
+          <a href="./productos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            style="color: #000000">Productos</a>
           </li>
         </ul>
       </div>
@@ -214,8 +232,9 @@
 
 
 
+
+
   <script src="../Scripts/loading.js"></script>
-  <script src="../Scripts/buscar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
@@ -229,6 +248,11 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+    <script src="../Scripts/buscar.js"></script>
+    <script src="../Scripts/buscar-productos.js"></script>
+      <!-- Modal bootstarp -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
