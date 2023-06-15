@@ -48,8 +48,8 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <form class="search-form" role="search">
-            <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-dark" type="submit">Buscar</button>
+            <input class="form-control me-2 search-input" type="text" placeholder="Buscar" aria-label="Search" id="busquedaProducto">
+            <button class="btn btn-outline-dark" type="submit" onclick="buscarProductos(event)">Buscar</button>
           </form>
         </li>
         <li class="nav-item">
@@ -212,6 +212,7 @@
 
 
   <script src="../Scripts/loading.js"></script>
+  <script src="../Scripts/buscar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
