@@ -6,86 +6,184 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/navbar.css">
   <link rel="shortcut icon" href="../image/img-inicio/LogoNavegador.png">
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
   <!--Bootstrap icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
-  <title>Acerca de nosotros</title>
+
+  <link rel="stylesheet" href="../css/navbar.css">
+  <title>Carrito de compras</title>
 </head>
 
 <body>
-<!-- NavBar -->
-<nav id="nav-menu" class="navbar navbar-expand-lg navbar-light px-md-2 p-sm-1">
-  <div class="container-fluid d-flex justify-content-between align-items-start align-content-start nav-content">
-    <a class="navbar-brand" href="../../index.html">
-      <img id="logo" src="../image/imgs-navbar/logo.png" alt="Logo de la empresa" class="d-inline-flex">
-    </a>
+  <!-- NavBar -->
+  <nav class="nav-menu navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+        <img class="logo" src="../image/imgs-navbar/logo.png" alt="Logo de la empresa" class="d-inline-flex">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse list" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contactanos.html">Contacto</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./acerca-de-nosotros.html">Acerca de nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./productos.html">Productos</a>
+          </li>
+        </ul>
 
-    <button id="toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <form class="search-form" role="search">
+              <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-outline-dark" type="submit">Buscar</button>
+            </form>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="./login.html">Log in</a>
+          </li>
+          <li class="nav-item">
+            <div class="nav-bar-icons">
+              <a class="nav-link" href="./perfil-de-usuario.html">
+                <img class="icon" src="../image/imgs-navbar/perfil-icon.png" alt="Icono de perfil">
+              </a>
+              <a class="nav-link" href="./carrito.html">
+                <img class="icon" src="../image/imgs-navbar/cart-icon.png" alt="Icono de carrito de compras">
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-    <div class="collapse navbar-collapse list" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-        <li class="nav-item mx-md-2">
-          <a class="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
-        </li>
-        <li class="nav-item mx-md-2">
-          <a class="nav-link" href="../html/contactanos.html">Contacto</a>
-        </li>
-        <li class="nav-item mx-md-2">
-          <a class="nav-link" href="../html/acerca-de-nosotros.html">Acerca de nosotros</a>
-        </li>
-        <li class="nav-item mx-md-2">
-          <a class="nav-link" href="../html/productos.html">Productos</a>
-        </li>
-      </ul>
+  <div class="container-fluid py-5 px-5">
+    <div id="carrito-container-responsive" class="row ">
+      <div class="content-car col-lg-6 col-sm-12 col-md-12 ">
+        <!-- División para sección de carrito de compras -->
+        <h1><b>Carrito de compras</b></h1>
+        <hr>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col">
+              <div id="empty-car" class="d-none my-5">
+              </div>
+              <div id="carrito-container" class="col-12 d-flex flex-column">
 
-      <ul class="navbar-nav">
-        <li class="nav-item mx-md-2 my-sm-2">
-          <form class="d-flex gap-3">
-            <input class="form-control" type="search" placeholder="Buscar" aria-label="Buscar">
-            <button class="btn btn-outline-dark" type="submit">Buscar</button>
-          </form>
-        </li>
-        <li class="nav-item mx-md-2 my-sm-2">
-          <a class="nav-link" href="../html/login.html">Login / Sign in</a>
-        </li>
-        <li class="nav-item mx-md-2 my-sm-2">
-          <a href="../html/perfil-de-usuario.html">
-            <img class="icon" src="../image/imgs-navbar/perfil-icon.png" alt="Icono de perfil">
-          </a>
-        </li>
-        <li class="nav-item mx-md-2 my-sm-2">
-          <a class="nav-link1" href="../html/carrito.html">
-            <img class="icon" src="../image/imgs-navbar/cart-icon.png" alt="Icono de carrito de compras">
-          </a>
-        </li>
-      </ul>
+                <!--Renderizar productos al carrito-container-->
+                <!-- <div class="d-flex gap-2 ">
+                  <img src="https://i.postimg.cc/nh1x6F9K/helado-choco.png" alt="helado de chocolate"
+                    class="img-producto-card">
+                  <div class="d-flex flex-column gap-3 justify-content-center">
+                    <h3>Helado de chocolate</h3>
+                    <div class="d-flex flex-row gap-5">
+                      <button class="boton-quitar">Quitar</button>
+                      <span class="input-wrapper">
+                        <button id="decrement">-</button>
+                        <input type="number" value="1" id="quantity" min="0" />
+                        <button id="increment">+</button>
+                      </span>
+                      <span class="texto-labels">$0</span>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Empieza resumen de compra -->
+      <div class="content-car col-lg-6 col-sm-12 col-md-12 mt-4">
+        <div id="resumen-de-compra">
+          <h3 class="sub-titulos">Resumen de compra</h3>
+          <ul class="resumen-compra border border-dark rounded p-4 mt-5">
+            <li id="precio-total-productos">Subtotal (productos): $0</li>
+            <li id="precio-envio">Precio de envío: $0</li>
+          </ul>
+          <div class="d-flex justify-content-end">
+            <span class="h4 fw-bold" id="precio-subtotal">Subtotal $0</span>
+          </div>
+        </div>
+
+
+        <!-- Empieza forma de pago -->
+        <div id="forma-de-pago">
+          <h3 class="sub-titulos">Forma de pago</h3>
+          <ul class="list-unstyled mt-4 ">
+            <div class="form-check">
+              <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">Tarjeta de crédito</label>
+              <img src="https://i.postimg.cc/0QnWVgxY/visa.png" alt="paypal" class="icon-carrito">
+            </div>
+            <div class="form-check">
+              <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">Paypal</label>
+              <img src="https://i.postimg.cc/HLZ8z3RJ/paypal-1.png" alt="paypal" class="icon-carrito">
+            </div>
+            <div class="form-check">
+              <input class="form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2"> Pago por OXXO</label>
+              <img src="https://i.postimg.cc/QMbJ3pPs/oxxo.png" alt="paypal" class="icon-carrito">
+            </div>
+          </ul>
+          <button id="btn-continuar-compra" class="mt-4 boton-standard">Continuar compra</button>
+        </div>
+      </div>
     </div>
   </div>
-</nav>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  
+  <!-- Division para seccion de otros productos relacionados -->
+  <div class="container-fluid py-5 px-5 ">
+    <h2 class="titulos-principal">Otros productos relacionados</h2>
+    <hr>
+    <!-- Siguen los productos -->
+    <div class="row">
+      <div class="col-12 d-flex flex-wrap gap-5 justify-content-lg-start justify-content-sm-center">
+        <div>
+          <img src="../image/imgs-helado/heladoP_ferrero.png" class="img-producto " />
+          <div>
+            <h3>Helado de Ferrero</h3>
+            <span>
+              <h3> $35.00</h3>
+            </span>
+          </div>
+        </div>
+
+
+        <div>
+          <img src="../image/imgs-helado/heladoP_nuez.png" class="img-producto" />
+          <div>
+            <h3>Helado de Nuez</h3>
+            <span>
+              <h3> $35.00</h3>
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <img src="../image/imgs-helado/helado_mamey.png" class="img-producto" />
+          <div>
+            <h3>Helado de Mamey</h3>
+            <span>
+              <h3>$35.00</h3>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
   <!--footer-->
@@ -103,25 +201,25 @@
           local 19, Unidad San Buenaventura, 56530 Ixtapaluca, Méx.
         </p>
         <p class="fs-6">Email: losreyesdelamichoacana@gmail.com</p>
-        <p>Telefono: +55 3026 3580</p>
+        <p>Teléfono: +55 3026 3580</p>
       </div>
       <div class="col-lg-3 col-md-3 col-sm-12 d-none d-lg-block">
         <h6 class="fw-bold">Navegación</h6>
         <ul class="navegacion p-0" style="list-style-type: none">
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            <a href="../../index.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
               style="color: #000000">Inicio</a>
           </li>
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            <a href="./acerca-de-nosotros.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
               style="color: #000000">Acerca de nosotros</a>
           </li>
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            <a href="./contactanos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
               style="color: #000000">Contacto</a>
           </li>
           <li>
-            <a href="#" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
+            <a href="./productos.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none"
               style="color: #000000">Productos</a>
           </li>
         </ul>
@@ -162,7 +260,7 @@
 
 
 
-
+  <script src="../Scripts/carrito.js"></script>
   <script src="../Scripts/loading.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

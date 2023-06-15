@@ -5,14 +5,25 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+ 
 }
 
 body {
+  cursor:url(../image/img-inicio/cursorHelado.png), auto;
   background: linear-gradient(to top, #FDE1B9, #FCFCEC);
   cursor:url(../image/img-inicio/cursorHelado.png), auto;
 }
 
 
+<<<<<<< HEAD
+=======
+
+.productos-inicio:hover {
+  transform: scale(1.4); 
+   transition: transform .5s;
+}
+
+>>>>>>> main
 /* loading  */
 .loader{
   background-image: url('../image/img-inicio/loader.gif');
@@ -583,4 +594,7 @@ input[type="number"] {
  
  } */
 
+<<<<<<< HEAD
  
+=======
+>>>>>>> main
