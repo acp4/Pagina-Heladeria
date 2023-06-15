@@ -1,8 +1,27 @@
+const busquedaTexto = document.getElementById('datos-buscados');
+
 const heladosContenedorP = document.getElementById('contenedor-helados-premium');
 const heladosContenedor = document.getElementById('contenedor-helados');
 const paletasContenedor = document.getElementById('contenedor-paletas');
 const aguasContenedor = document.getElementById('contenedor-aguas');
 
+const API = async () => {
+
+  let datos = localStorage.getItem("busuedaLosReyes");
+  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/buscar/${datos}`, {
+  })
+    .then(response => response.json())
+    .then(productos => {
+      imprimirProductos(productos)
+      if(datos != null)
+      busquedaTexto.innerText = `Resultados de: "${datos}" (${productos.length})`;
+      else 
+      busquedaTexto.innerText = `Ingresa una busqueda en el navbar`; 
+    });
+  
+  localStorage.removeItem("busuedaLosReyes");
+  
+}
 const imprimirProductos = (productos) => {
   // Obtener el carrito del Local Storage (si existe)
   let carrito = localStorage.getItem('carrito');
@@ -86,47 +105,19 @@ function añadirAlCarrito(productId) {
 
 // ---------------------Funcion MODAL
 
-/* async function openModal(productId) {
+async function openModal(productId) {
   let modal = document.getElementById('myModal');
   let descripcionProducto1 = document.getElementById('descripcion-producto');
-  productId=productId;
+
   // Find the product by its ID
-  const url =`http://backend-pagina-heladeria-production.up.railway.app/api/productos`; ///${productId}
-  
+  const url =`https://backend-pagina-heladeria-production.up.railway.app/api/productos/${productId}`;
   let product = await fetch(url).then(response => response.json());
-  then data => response.json());
-  // Update the modal content 
-  console.log(product);
-  let descripcion = product.productId;
-  console.log(descripcion);
+
+  // Update the modal content
   document.getElementById('nombre-producto').textContent = product.nombreProducto;
   descripcionProducto1.textContent = product.descripcionProducto;
 
   modal.style.display = 'block';
 }
- */
-async function openModal(productId) {
-  let productIdMin = productId-1;
-  let modal = document.getElementById('myModal');
- 
-  const url = `http://backend-pagina-heladeria-production.up.railway.app/api/productos`;
-  
-  let product = await fetch(url).then(response => response.json());
-  console.log(product);
-  // console.log(descripcion);
-  document.getElementById('descripcion-producto').textContent = product[productIdMin].descripcionProducto;
-  document.getElementById('nombre-producto').textContent = product[productIdMin].nombreProducto;
 
-  modal.style.display = 'block';
-}
-
-
-function getProductsFetch () {
-  const url = 'http://backend-pagina-heladeria-production.up.railway.app/api/productos'
-
- fetch(url)
-   .then(response => response.json())
-   .then(productos =>imprimirProductos(productos));
-}
-
-getProductsFetch();
+API();

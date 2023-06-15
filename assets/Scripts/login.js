@@ -1,27 +1,32 @@
 const jsConfetti = new JSConfetti();
+let verificar=false;
 const login = (event)=>{
     event.preventDefault();
     if(validardatos()){
     let correo1 = document.getElementById("email").value;
     let contra1 = document.getElementById("contrasena").value;
-    let usuarios = JSON.parse(localStorage.getItem("datosRegistro"));
-    let verificar=false;
-    for(let i = 0; i < usuarios.length; i++){
-        if (correo1 == usuarios[i].correo && contra1 == usuarios[i].contrasena){
-           verificar = true;
-         } 
-      }
-      if (verificar) {     
-        confetti(); 
-        setTimeout(() => { window.location.href = "../../index.html" }, 2000);
-      }else{
-        swal( " Usuario no existe, registrate ",{
-          icon: "warning",
-        }); 
-    } 
+    const url = 'https://backend-pagina-heladeria-production.up.railway.app/api/usuarios';
+    fetch(url)
+      .then(response => response.json())
+      .then(usuarios =>comparacionLogin(correo1,contra1,usuarios));
   }
 }
-
+const comparacionLogin = (correo1,contra1,usuarios)=>{
+  for(let i = 0; i < usuarios.length; i++){
+    if (correo1 == usuarios[i].emailUsuario && contra1 == usuarios[i].contraseña){
+       verificar = true;
+       CrearOrden(usuarios[i]);
+     } 
+  }
+  if (verificar) {     
+    confetti(); 
+    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+  }else{
+    swal( " Usuario no existe, registrate ",{
+      icon: "warning",
+    });   
+  }
+}
 const confetti = async () => {
   try {
     await jsConfetti.addConfetti({
@@ -73,4 +78,12 @@ const validardatos=()=>{
     }
     return true;
 }
-
+function CrearOrden(datos) {
+  console.log(datos);
+  fetch('https://backend-pagina-heladeria-production.up.railway.app/api/ordenes', {
+    method: "POST",
+    body: {
+      "usuarioId": 9,
+    },
+    headers: {"Content-type": "application/json; charset=UTF-8"}
+  })}

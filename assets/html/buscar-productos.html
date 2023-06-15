@@ -1,138 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <link rel="shortcut icon" href="../image/img-inicio/LogoNavegador.png">
+  <!-- Modal bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
-    <link rel="shortcut icon" href="../image/img-inicio/LogoNavegador.png">
-  <!--link para decorar input-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
-  <link rel="stylesheet" href="../css/navbar.css" />
-  <title>Contáctanos</title>
+  integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+  <!--Bootstrap icons-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+ 
+  <link rel="stylesheet" href="../css/navbar.css">
+  <title>Productos</title>
 </head>
 
 <body>
-  <!-- NavBar -->
-  <nav class="nav-menu navbar navbar-expand-lg">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-        <img class="logo" src="../image/imgs-navbar/logo.png" alt="Logo de la empresa" class="d-inline-flex">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse list" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./contactanos.html">Contacto</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./acerca-de-nosotros.html">Acerca de nosotros</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./productos.html">Productos</a>
-          </li>
-        </ul>
+<!-- NavBar -->
+<nav class="nav-menu navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="../../index.html">
+      <img class="logo" src="../image/imgs-navbar/logo.png" alt="Logo de la empresa" class="d-inline-flex">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse list" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="../../index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./contactanos.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./acerca-de-nosotros.html">Acerca de nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./productos.html">Productos</a>
+        </li>
+      </ul>
 
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <form class="search-form" role="search">
-              <input class="form-control me-2 search-input" type="text" placeholder="Buscar" aria-label="Search" id="busquedaProducto">
-              <button class="btn btn-outline-dark" type="submit" onclick="buscarProductos(event)">Buscar</button>
-            </form>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="log-status-in" aria-current="page" href="./login.html">Log in</a>
-            <a class="nav-link d-none" id="log-status-out" aria-current="page" href="./login.html" onclick="setLogStatusFalse()">Log out</a>
-          </li>
-          <li class="nav-item">
-            <div class="nav-bar-icons">
-              <a class="nav-link" href="./perfil-de-usuario.html">
-                <img class="icon" src="../image/imgs-navbar/perfil-icon.png" alt="Icono de perfil">
-              </a>
-              <a class="nav-link" href="./carrito.html">
-                <img class="icon" src="../image/imgs-navbar/cart-icon.png" alt="Icono de carrito de compras">
-              </a>
-            </div>
-          </li>
-        </ul>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <form class="search-form" role="search">
+            <input class="form-control me-2 search-input" type="text" placeholder="Buscar" aria-label="Search" id="busquedaProducto">
+            <button class="btn btn-outline-dark" type="submit" onclick="buscarProductos(event)">Buscar</button>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="./login.html">Log in</a>
+        </li>
+        <li class="nav-item">
+          <div class="nav-bar-icons">
+            <a class="nav-link" href="./perfil-de-usuario.html">
+              <img class="icon" src="../image/imgs-navbar/perfil-icon.png" alt="Icono de perfil">
+            </a>
+            <a class="nav-link" href="./carrito.html">
+              <img class="icon" src="../image/imgs-navbar/cart-icon.png" alt="Icono de carrito de compras">
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div class="container" id="contenedor-productosHTML">
+  <div class="row">
+    <div class="col-3 mt-4" id="contenedor-categoria">
+      <h3 id="titulo-categorias"> Categoría </h3>
+      <br>
+      <ul id="links-productos" class="list-unstyled">
+        <a href="#titulo-helado" class="text-decoration-none link-no-underline"> <li> Helados</li></a>
+        <a href="#titulo-heladoP" class="text-decoration-none link-no-underline"><li> Helados Premium</li></a>
+        <a href="#titulo-paleta" class="text-decoration-none link-no-underline"><li>Paletas</li></a>
+        <a href="#titulo-agua" class="text-decoration-none link-no-underline"><li> Aguas</li></a>
+      </ul>
+    </div>
+
+
+    <div class="col-sm-12 col-md-12 col-lg-9 "> <!--División columna de todos los productos  -->
+
+        <!-- Empieza CATEGORIA OCULTA -->
+      <div id="categoria-responsive" class="row text-center">
+        <div class="col-12 mt-4" id="contenedor-categoria-responsive">
+          <h3 id="titulo-categorias-responsive"> Categoría </h3>
+        </div>
+        <div class="row justify-content-around p-5">
+          <button type="button" class="boton-categoria btn col-sm-2 mb-2"><a href="#titulo-helado" class="text-decoration-none link-no-underline-2">Helados</a></button> 
+          <button type="button" class="boton-categoria btn  col-sm-2  mb-2"><a href="#titulo-heladoP" class="text-decoration-none link-no-underline-2">Helados Premium</a></button> 
+          <button type="button" class="boton-categoria btn  col-sm-2  mb-2"><a href="#titulo-paleta" class="text-decoration-none link-no-underline-2">Paletas</a></button>
+          <button type="button" class="boton-categoria btn col-sm-2"> <a href="#titulo-agua" class="text-decoration-none link-no-underline-2">Agua</a></button>
+        </div>
+
+      </div>  <!-- Acaba CATEGORIA OCULTA -->
+
+
+
+      <div> <h2 id="datos-buscados" class="titulo-productos mt-3 mb-2"></h2></div>
+      <div > <!-- División para seccion helados -->
+        <h1 id="titulo-helado" class="titulo-productos mt-3 mb-2">Helados</h1><hr>
+        <!-- Esto tiene que llenarse con JavaS-->
+        <div id="contenedor-helados" class="contenedor-productos row"> 
+        </div>
+      </div>
+
+      <div > <!-- División para seccion helados -->
+        <h1 id="titulo-heladoP" class="titulo-productos mt-5 mb-2">Helados Premium</h1><hr>
+        <div id="contenedor-helados-premium" class="contenedor-productos row" ></div>
+      </div>
+      
+      <!-- División para seccion paletas -->
+      <div > 
+        <h1 id="titulo-paleta" class="titulo-productos mt-5 mb-2">Paletas</h1><hr>
+        <div id="contenedor-paletas" class="contenedor-productos row"></div>
+      </div>
+
+       <!-- División para seccion aguas -->
+      <div > 
+        <h1 id="titulo-agua" class="titulo-productos mt-5 mb-2">Aguas</h1><hr>
+        <div id="contenedor-aguas" class="contenedor-productos row"></div>
       </div>
     </div>
-  </nav>
+  </div>
+</div>
 
 
-  <!-- EMPIEZA FORMATO CONTACTANOS  -->
-  <div class="container container-round mt-5 mb-5 justify-content-center">
-    <!--Aqui empieza el formulario-->
-    <div class="row">
-      <div id="contenedor-imagen-con-formulario" class="col-lg-6 d-none d-lg-flex p-0">
-        <img class="w-100 imagen-form" src="../image/imgs-pagina-contacto/1-form.jpg"
-          alt="pila de helados" />
-      </div>
-      <div class="col-lg-6 p-5">
-        <form action="https://formsubmit.co/c8073e1e302d6e6b4a631557c141812a" method="POST">
-          <div class="row text-center">
-            <div class="col mt-5 mb-5">
-              <h1>Contáctanos</h1>
-              <p>
-                Si está interesado en la venta de nuestros productos, le invitamos a ponerse en contacto con nosotros.
-              </p>
-            </div>
-          </div>
-          <div class="row mb-4">
-            <div class="col-lg-6 col-sm-12 my-lg-0 my-3">
-              <div class="form-outline">
-
-                <label class="form-label" for="nombre"><i class="fa-solid fa-user"></i> Nombre:</label>
-                <input type="text" id="nombre" name="Nombre" class="form-control" required />
-              </div>
-            </div>
-            <div class="col-lg-6 col-sm-12 my-lg-0 my-3">
-              <div class="form-outline">
-                <label class="form-label" for="email"><i class="fa-solid fa-envelope"></i> Email:</label>
-                <input type="email" id="email"  name="Email" class="form-control" required />
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <div class="form-outline mb-3">
-              <label class="form-label" for="tema"><i class="fa-brands fa-twitter"></i> Tema:</label>
-              <input type="text" id="tema"  name="Tema o asunto" class="form-control" required />
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <div class="form-outline mb-3">
-              <label class="form-label" for="mensaje"><i class="fa-solid fa-message"></i> Mensaje:</label>
-              <textarea class="form-control" name="Mensaje" id="mensaje" rows="4" required></textarea>
-            </div>
-          </div>
-          <div class="col-sm-12 mt-4">
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-dark btn-block mb-4">
-              Enviar
-            </button>
-          </div>
-          <input type="hidden" name="_next" value="https://acp4.github.io/Pagina-Heladeria/index.html">
-          <input type="hidden" name="_captcha" value="false">
-        </form>
+  <!-- Aquí es lo del MODAL -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content custom-modal">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title">Detalles del producto</h5>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <h3 id="nombre-producto"></h3>
+          <p id="descripcion-producto"></p>
+        </div>
       </div>
     </div>
   </div>
 
-  <!--footer responsive-->
+
+
+
+  <!--footer-->
   <footer>
     <div class="row p-5 mt-4 justify-content-center text-center">
       <div class="col-lg-3 col-md-3 col-sm-12">
@@ -203,12 +228,31 @@
       </div>
     </div>
   </footer>
-  <script src="../Scripts/log.js"></script>
+
+
+
+
+
+
   <script src="../Scripts/loading.js"></script>
-  <script src="../Scripts/buscar.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+    <script src="../Scripts/buscar.js"></script>
+    <script src="../Scripts/buscar-productos.js"></script>
+      <!-- Modal bootstarp -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

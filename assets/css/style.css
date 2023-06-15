@@ -5,10 +5,20 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+ 
 }
 
 body {
+  cursor:url(../image/img-inicio/cursorHelado.png), auto;
   background: linear-gradient(to top, #FDE1B9, #FCFCEC);
+  cursor:url(../image/img-inicio/cursorHelado.png), auto;
+}
+
+
+
+.productos-inicio:hover {
+  transform: scale(1.4); 
+   transition: transform .5s;
 }
 
 /* loading  */
@@ -247,6 +257,11 @@ footer {
   /* Mantener el color del texto heredado */
   text-decoration: none;
   /* Quitar la subrayado */
+}
+
+/*Arreglar que cursor sea pointer en imagenes*/
+.image-container-products {
+  cursor:pointer;
 }
 
 .link-no-underline,
@@ -576,4 +591,3 @@ input[type="number"] {
  
  } */
 
- 

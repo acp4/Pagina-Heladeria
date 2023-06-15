@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
+  <link rel="shortcut icon" href="../image/img-inicio/LogoNavegador.png">
   <!--Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
@@ -49,13 +50,14 @@
 
         <ul class="navbar-nav">
           <li class="nav-item">
-            <form class="search-form" role="search">
-              <input class="form-control me-2 search-input" type="search" placeholder="Buscar" aria-label="Search">
-              <button class="btn btn-outline-dark" type="submit">Buscar</button>
+            <form class="search-form" role="text">
+              <input class="form-control me-2 search-input" type="text" placeholder="Buscar" aria-label="Search" id="busquedaProducto">
+              <button class="btn btn-outline-dark" type="submit" onclick="buscarProductos(event)">Buscar</button>
             </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="./login.html">Log in</a>
+            <a class="nav-link" id="log-status-in" aria-current="page" href="./login.html">Log in</a>
+            <a class="nav-link d-none" id="log-status-out" aria-current="page" href="./login.html" onclick="setLogStatusFalse()">Log out</a>
           </li>
           <li class="nav-item">
             <div class="nav-bar-icons">
@@ -74,41 +76,44 @@
 
 
   <!--Sign-in-->
-
   <div class="container container-round justify-content-center mt-5 mb-5">
     <div class="row">
-      <div class="col-lg-6 d-none d-lg-flex p-0">
+      <div class="col-lg-6 d-none justify-content-center d-lg-flex p-0">
         <img src="../image/imgs-log-in/helado.png " alt="helado"
-          class="w-100 imagen-form" />
+          class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
       </div>
       <div class="col-lg-6">
-        <div class="card-body py-5 px-md-5 p-5">
-          <div class="container">
-            <div class="row text-center justify-content-center">
-              <div class="col col-sm-12">
-                <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
-                <h2>Regístrate</h2>
-              </div>
+        <div class="card-body justify-content-center py-5 px-md-5 p-5">
+          <div class="row mb-2 text-center justify-content-center">
+            <div class="col">
+              <img src="../image/imgs-navbar/logo.png" alt="logo" class="logo-icon-page">
+              <h2>Regístrate</h2>
             </div>
-          </div>
-
+          </div><br><br>
           <form>
             <div class="form-group my-4">
               <i class="fa-solid fa-user"></i>
               <label for="nombre">Nombre:</label>
-              <input type="text" class="form-control" id="nombre" name="nombre" required>
+              <div class="input-group">
+                <input type="text" class="form-control" id="nombre" name="nombre" required>
+                <span class="valid-icon"></span>
+              </div>
             </div>
             <div class="form-group my-4">
               <i class="fa-solid fa-envelope"></i>
               <label for="correo">Correo electrónico:</label>
-              <input type="email" class="form-control" id="correo" name="correo" required>
+              <div class="input-group">
+                <input type="email" class="form-control" id="correo" name="correo" required>
+                <span class="valid-icon"></span>
+              </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-lock"></i>
               <label for="contrasena">Contraseña:</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                <span class="valid-icon"></span>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
@@ -122,12 +127,13 @@
                 </div>
               </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-lock"></i>
               <label for="confirContrasena">Confirmar Contraseña:</label>
               <div class="input-group">
                 <input type="password" class="form-control" id="confirContrasena" name="confirContrasena" required>
+                <span class="valid-icon"></span>
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" onclick="mostrarContrasena2()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye"
@@ -141,36 +147,41 @@
                 </div>
               </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-phone"></i>
               <label for="telefono">Teléfono:</label>
-              <input type="tel" class="form-control" id="telefono" name="telefono" required>
+              <div class="input-group">
+                <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                <span class="valid-icon"></span>
+              </div>
             </div>
-
+  
             <div class="form-group my-4">
               <i class="fa-solid fa-address-book"></i>
-              <label for="direccionEnvio">Dirección de envío:</label>
-              <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
+              <label for="direccionEnvio">Dirección de Envío:</label>
+              <div class="input-group">
+                <textarea class="form-control" id="direccionEnvio" name="direccionEnvio" required></textarea>
+                <span class="valid-icon"></span>
+              </div>
             </div>
+  
             <div class="row mt-4">
               <div class="col-12 d-flex justify-content-center mt-2">
-                <button id="registroBtn" type="submit" class="btn btn-dark btn-block mb-4"
-                  onclick="guardarDatos(event)">
+                <button id="registroBtn" type="submit" class="btn btn-dark btn-block mb-4" onclick="guardarDatos(event)">
                   Registrarse
                 </button>
-                <a href="/index.html" class="btn btn-outline-dark btn-block mb-4 mx-4" target="_blank">
+                <a href="./login.html" class="btn btn-outline-dark btn-block mb-4 mx-4">
                   Iniciar sesión
                 </a>
               </div>
             </div>
+          </form>
         </div>
       </div>
-      </form>
     </div>
   </div>
-
-
+  
   <!--footer-->
   <footer>
     <div class="row p-5 mt-4 justify-content-center text-center">
@@ -246,6 +257,7 @@
 
 
   <script src="../Scripts/loading.js"></script>
+  <script src="../Scripts/log.js"></script>
   <!-- Script de Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
@@ -262,6 +274,8 @@
   <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
   <!-- Script -->
   <script src="../Scripts/registrate.js"></script>
+  <!-- Script de busqueda -->
+  <script src="../Scripts/buscar.js"></script>
   <!--Alerta dulce-->
   <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
 </body>
