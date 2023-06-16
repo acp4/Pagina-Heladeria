@@ -161,3 +161,6 @@ renderCartProducts();
   btnContinuarCompra.addEventListener('click', ()=>{
     window.location.href = '../../index.html';
   });
+
+
+// -------------------------Botón comprar

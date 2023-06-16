@@ -1,3 +1,4 @@
+let logStatus= false;
 const jsConfetti = new JSConfetti();
 let verificar=false;
 const login = (event)=>{
@@ -20,6 +21,7 @@ const comparacionLogin = (correo1,contra1,usuarios)=>{
   }
   if (verificar) {     
     confetti(); 
+    localStorage.setItem('LogStatus', JSON.stringify(true));
    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
   }else{
     swal( " Usuario no existe, registrate ",{
