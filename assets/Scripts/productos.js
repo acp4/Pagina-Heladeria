@@ -1,3 +1,6 @@
+let idOrden = localStorage.getItem('Orden');
+let idUsuario = localStorage.getItem('Usuario');
+
 const heladosContenedorP = document.getElementById('contenedor-helados-premium');
 const heladosContenedor = document.getElementById('contenedor-helados');
 const paletasContenedor = document.getElementById('contenedor-paletas');
@@ -51,61 +54,29 @@ const imprimirProductos = (productos) => {
 let productosCarrito = [];
 
 // --------------FUNCIÓN DEL CARRITO 
-function añadirAlCarrito(productId) {
-  console.log(productId);
-  // let carrito = localStorage.getItem('carrito');
-  // if (carrito) {
-  //   productosCarrito = JSON.parse(carrito);
-
-  //   if (productosCarrito.some((item) => item.id == productId)) {
-  //     document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
-      
-  //     console.log("Elemento existen el localStorage")
-  //   } else {
-  //     console.log('Elemento no existe en local')
-  //     const product = productos.find((element) => {
-  //       return element.id === productId;
-  //     });
-  //     productosCarrito.push({ ...product, cantidad: 1 })
-  //     console.log(productosCarrito);
-  //     localStorage.setItem('carrito', JSON.stringify(productosCarrito));
-  //   }
-  // } else {
-  //   console.log('No hay datos en el local storage')
-  //   const product = productos.find((element) => {
-  //     return element.id === productId;
-  //   });
-  //   productosCarrito.push({ ...product, cantidad: 1 })
-  //   console.log(productosCarrito);
-  //   localStorage.setItem('carrito', JSON.stringify(productosCarrito));
-  // }
-
-}
-
-
-
-
-// ---------------------Funcion MODAL
-
-/* async function openModal(productId) {
-  let modal = document.getElementById('myModal');
-  let descripcionProducto1 = document.getElementById('descripcion-producto');
-  productId=productId;
-  // Find the product by its ID
-  const url =`http://backend-pagina-heladeria-production.up.railway.app/api/productos`; ///${productId}
+async function añadirAlCarrito(productId) {
+  const productoObj = await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/${productId}`, {
+  })
+    .then(response => response.json());
   
-  let product = await fetch(url).then(response => response.json());
-  then data => response.json());
-  // Update the modal content 
-  console.log(product);
-  let descripcion = product.productId;
-  console.log(descripcion);
-  document.getElementById('nombre-producto').textContent = product.nombreProducto;
-  descripcionProducto1.textContent = product.descripcionProducto;
-
-  modal.style.display = 'block';
+  const datosObj = {
+    cantidadProducto: 1,
+    producto: productoObj,
+    orden: {
+      ordenId: idOrden,
+      usuarioId: idUsuario
+    }
+  };
+  await fetch('https://backend-pagina-heladeria-production.up.railway.app/api/carrito', {
+    method: "POST",
+    body: JSON.stringify(datosObj),
+    headers: { "Content-type": "application/json; charset=UTF-8" }
+  })
+  
+  document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
+  document.querySelector(`#boton-carrito-${productId}`).setAttribute("disabled", "true");
 }
- */
+  
 async function openModal(productId) {
   let productIdMin = productId-1;
   let modal = document.getElementById('myModal');
@@ -131,3 +102,14 @@ await fetch(url)
 }
 
 getProductsFetch();
+
+const mappearCarrito = async () => {
+  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
+    .then(response => response.json())
+    .then(lista => lista.forEach(productos => {
+      document.querySelector(`#boton-carrito-${productos.producto.productoId}`).textContent = 'Ya en tu carrito';
+      document.querySelector(`#boton-carrito-${productos.producto.productoId}`).setAttribute("disabled", "true");
+    }));
+  
+}
+mappearCarrito();
