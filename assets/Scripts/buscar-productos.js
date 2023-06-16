@@ -5,10 +5,10 @@ const heladosContenedor = document.getElementById('contenedor-helados');
 const paletasContenedor = document.getElementById('contenedor-paletas');
 const aguasContenedor = document.getElementById('contenedor-aguas');
 
-const API = async () => {
+const API = () => {
 
   let datos = localStorage.getItem("busuedaLosReyes");
-  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/buscar/${datos}`, {
+  fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/buscar/${datos}`, {
   })
     .then(response => response.json())
     .then(productos => {
@@ -71,7 +71,7 @@ let productosCarrito = [];
 
 // --------------FUNCIÓN DEL CARRITO 
 function añadirAlCarrito(productId) {
-  let carrito = localStorage.getItem('carrito');
+  let idCliente = localStorage.getItem('auxOrden');
   if (carrito) {
     productosCarrito = JSON.parse(carrito);
 

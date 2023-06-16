@@ -15,7 +15,8 @@ const comparacionLogin = (correo1,contra1,usuarios)=>{
   for(let i = 0; i < usuarios.length; i++){
     if (correo1 == usuarios[i].emailUsuario && contra1 == usuarios[i].contraseña){
        verificar = true;
-       CrearOrden(usuarios[i]);
+      CrearOrden(usuarios[i]);
+      localStorage.setItem("AuxOrden", usuarios[i].usuarioId);
      } 
   }
   if (verificar) {     
