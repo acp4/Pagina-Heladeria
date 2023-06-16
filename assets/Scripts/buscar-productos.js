@@ -26,14 +26,6 @@ const API = () => {
   
 }
 const imprimirProductos = (productos) => {
-  // Obtener el carrito del Local Storage (si existe)
-  let carrito = localStorage.getItem('carrito');
-  let productosCarrito = [];
-
-  // Si el carrito ya existe en el Local Storage, convertirlo en un array
-  if (carrito) {
-    productosCarrito = JSON.parse(carrito);
-  }
 
   productos.forEach((producto) => {
     let categoria = producto.categoriaProducto;
@@ -118,7 +110,7 @@ async function openModal(productId) {
 }
 
 const mappearCarrito = async () => {
-  const verificar = await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
+  fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
     .then(response => response.json())
     .then(lista => lista.forEach(productos => {
       document.querySelector(`#boton-carrito-${productos.producto.productoId}`).textContent = 'Ya en tu carrito';
