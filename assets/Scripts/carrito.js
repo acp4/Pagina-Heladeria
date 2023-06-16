@@ -3,14 +3,14 @@ let cartProducts = getProducts();
 const precioTotalProductos = document.getElementById("precio-total-productos"); 
 const precioEnvio = document.getElementById("precio-envio"); 
 const precioSubtotal = document.getElementById("precio-subtotal"); 
-let  precioEnvioRandom = 200;
+let  precioEnvioRandom = 100;
 const btnContinuarCompra = document.getElementById('btn-continuar-compra');
 const emptyCarDiv = document.getElementById('empty-car');
 const formaDePagoDiv = document.getElementById('forma-de-pago');
 const resumenDeCompraDiv = document.getElementById('resumen-de-compra');
 
 if(cartProducts.length === 0 ){
-    emptyCart();
+    // emptyCart();
 }
 
 function emptyCart(){
@@ -31,7 +31,7 @@ function emptyCart(){
 function getProducts() {
     return JSON.parse(localStorage.getItem('carrito')) || [] ;
 }
-updateCart();
+// updateCart();
 
 
 function updateCart(){
@@ -43,13 +43,13 @@ function updateCart(){
     }
 }
 
-function renderSubTotal(){
+function renderSubTotal(products){
     let totalPrice = 0;
     let totalItems = 0;
     
-    cartProducts.forEach((product)=>{
-        totalPrice += product.precio * product.cantidad;
-        totalItems += product.cantidad;
+    products.forEach((productos)=>{
+        totalPrice += productos.producto.precioProducto * productos.cantidadProducto;
+        totalItems += productos.cantidadProducto;
         
     });
    
@@ -63,42 +63,42 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
 
+  
+function getProductsFetch() {
+    let idOrden = localStorage.getItem('Orden'); 
+    const url = `https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`
+    // const url = 'http://localhost:8080/api/carrito/orden/1'
+  
+  fetch(url)
+     .then(response => response.json())
+     .then(productos => { 
+        renderCartProducts(productos) 
+        renderSubTotal(productos)});
+  }
 
-function renderCartProducts() {
+  getProductsFetch();
+
+function renderCartProducts(producto) {
     carritoContainer.innerHTML = ""; // Limpiar cart-container
-    cartProducts.forEach((element) => {
+    producto.forEach((productos) => {
         const productDiv = document.createElement('div');
         productDiv.classList.add("d-flex", "gap-2");
         
         productDiv.innerHTML = `
-            <img src="${element.url}" alt="${element.nombre}" class="img-producto-card">
+            <img src="${productos.producto.imagenProducto}" alt="${productos.producto.nombreProducto}" class="img-producto-card">
             <div class="d-flex flex-column gap-3 justify-content-center">
-                <h4 class="fw-bold">${element.nombre}</h4>
+                <h4 class="fw-bold">${productos.producto.nombreProducto}</h4>
                 <div class="d-flex flex-row gap-5">
-                    <button class="boton-quitar">Quitar</button>
+                    <button class="boton-quitar" onclick="removeProductFromCart(${productos.productHasOrdenId})">Quitar</button>
                     <span class="input-wrapper">
-                        <button class="decrement">-</button>
-                        <input type="number" value="${element.cantidad}">
-                        <button class="increment">+</button>
+                        <button class="decrement" onclick="changeNumberOfUnits('minus',${productos.productHasOrdenId})">-</button>
+                        <input type="number" value="${productos.cantidadProducto}">
+                        <button class="increment" onclick="changeNumberOfUnits('plus',${productos.productHasOrdenId})">+</button>
                     </span>
-                    <span class="texto-labels">$ ${element.precio}</span>
+                    <span class="texto-labels">$ ${productos.producto.precioProducto}</span>
                 </div>
             </div>`;
         
-        const removeButton = productDiv.querySelector(".boton-quitar");
-        removeButton.addEventListener("click", () => {
-            removeProductFromCart(element.id);
-        });
-        
-        const decrementButton = productDiv.querySelector(".decrement");
-        decrementButton.addEventListener("click", () => {
-            changeNumberOfUnits('minus', element.id);
-        });
-        
-        const incrementButton = productDiv.querySelector(".increment");
-        incrementButton.addEventListener("click", () => {
-            changeNumberOfUnits('plus', element.id);
-        });
         
         carritoContainer.appendChild(productDiv);
     });
@@ -106,24 +106,47 @@ function renderCartProducts() {
 }
 
 function removeProductFromCart(id){
-    cartProducts = cartProducts.filter((product)=> product.id !== id)
-    updateCart();
+    // cartProducts = cartProducts.filter((product)=> product.id !== id)
+    // updateCart();
+    // const url = `https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${id}`;
+    const url = `http://localhost:8080/api/carrito/${id}`;
+    fetch(url,
+        {
+            method: 'DELETE', 
+        }).then(res => console.log(res.text()))
+        .catch(error => console.log(error))
+        
 }
 
 function changeNumberOfUnits(action, productId){
-    cartProducts = cartProducts.map((product)=>{
-        let cantidad = product.cantidad;
+    const datosObj = {
 
-        if(product.id === productId){
-            if(action === 'minus' && cantidad > 1){
-                cantidad--;
-            }else if(action=='plus'){
-                cantidad++;
-            }
-        }
-        return {...product, cantidad};
-    });
-    updateCart();
+    }
+
+    const url = `http://localhost:8080/api/carrito/${id}`;
+    fetch(url,
+        {
+            method: 'PUT',
+            body: JSON.stringify(), 
+        }).then(res => console.log(res.text()))
+        .catch(error => console.log(error))
+
+
+    // cartProducts = cartProducts.map((product)=>{
+    //     let cantidad = product.cantidadProducto;
+
+    //     if(product.id === productId){
+    //         if(action === 'minus' && cantidad > 1){
+    //             cantidad--;
+    //         }else if(action=='plus'){
+    //             cantidad++;
+    //         }
+    //     }
+    //     return {...product, cantidad};
+    // });
+    // updateCart();
+
+
 }
 
 

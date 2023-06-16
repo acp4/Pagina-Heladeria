@@ -15,13 +15,12 @@ const comparacionLogin = (correo1,contra1,usuarios)=>{
   for(let i = 0; i < usuarios.length; i++){
     if (correo1 == usuarios[i].emailUsuario && contra1 == usuarios[i].contraseña){
        verificar = true;
-      CrearOrden(usuarios[i]);
-      localStorage.setItem("AuxOrden", usuarios[i].usuarioId);
+      CrearOrden(usuarios[i].usuarioId);
      } 
   }
   if (verificar) {     
     confetti(); 
-    setTimeout(() => { window.location.href = "../../index.html" }, 2000);
+   setTimeout(() => { window.location.href = "../../index.html" }, 2000);
   }else{
     swal( " Usuario no existe, registrate ",{
       icon: "warning",
@@ -80,11 +79,20 @@ const validardatos=()=>{
     return true;
 }
 function CrearOrden(datos) {
-  console.log(datos);
+  const datosObj = {
+    usuarioId : datos
+  };
   fetch('https://backend-pagina-heladeria-production.up.railway.app/api/ordenes', {
     method: "POST",
-    body: {
-      "usuarioId": 9,
-    },
-    headers: {"Content-type": "application/json; charset=UTF-8"}
-  })}
+    body: JSON.stringify(datosObj),
+    headers: { "Content-type": "application/json; charset=UTF-8" }
+  }
+  )
+    .then(response => response.json())
+    .then(respons => {
+      let orden = respons.ordenId;
+      let cliente = respons.usuarioId;
+      localStorage.setItem('Orden', orden);
+      localStorage.setItem('Usuario', cliente);
+    })
+}

@@ -52,32 +52,33 @@ let productosCarrito = [];
 
 // --------------FUNCIÓN DEL CARRITO 
 function añadirAlCarrito(productId) {
-  let carrito = localStorage.getItem('carrito');
-  if (carrito) {
-    productosCarrito = JSON.parse(carrito);
+  console.log(productId);
+  // let carrito = localStorage.getItem('carrito');
+  // if (carrito) {
+  //   productosCarrito = JSON.parse(carrito);
 
-    if (productosCarrito.some((item) => item.id == productId)) {
-      document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
+  //   if (productosCarrito.some((item) => item.id == productId)) {
+  //     document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
       
-      console.log("Elemento existen el localStorage")
-    } else {
-      console.log('Elemento no existe en local')
-      const product = productos.find((element) => {
-        return element.id === productId;
-      });
-      productosCarrito.push({ ...product, cantidad: 1 })
-      console.log(productosCarrito);
-      localStorage.setItem('carrito', JSON.stringify(productosCarrito));
-    }
-  } else {
-    console.log('No hay datos en el local storage')
-    const product = productos.find((element) => {
-      return element.id === productId;
-    });
-    productosCarrito.push({ ...product, cantidad: 1 })
-    console.log(productosCarrito);
-    localStorage.setItem('carrito', JSON.stringify(productosCarrito));
-  }
+  //     console.log("Elemento existen el localStorage")
+  //   } else {
+  //     console.log('Elemento no existe en local')
+  //     const product = productos.find((element) => {
+  //       return element.id === productId;
+  //     });
+  //     productosCarrito.push({ ...product, cantidad: 1 })
+  //     console.log(productosCarrito);
+  //     localStorage.setItem('carrito', JSON.stringify(productosCarrito));
+  //   }
+  // } else {
+  //   console.log('No hay datos en el local storage')
+  //   const product = productos.find((element) => {
+  //     return element.id === productId;
+  //   });
+  //   productosCarrito.push({ ...product, cantidad: 1 })
+  //   console.log(productosCarrito);
+  //   localStorage.setItem('carrito', JSON.stringify(productosCarrito));
+  // }
 
 }
 
