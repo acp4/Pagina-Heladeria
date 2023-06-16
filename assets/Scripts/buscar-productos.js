@@ -109,7 +109,7 @@ async function openModal(productId) {
   modal.style.display = 'block';
 }
 
-const mappearCarrito = async () => {
+const mappearCarrito = () => {
   fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
     .then(response => response.json())
     .then(lista => lista.forEach(productos => {
