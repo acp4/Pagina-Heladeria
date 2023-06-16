@@ -7,14 +7,7 @@ const paletasContenedor = document.getElementById('contenedor-paletas');
 const aguasContenedor = document.getElementById('contenedor-aguas');
 
 const imprimirProductos = (productos) => {
-  // Obtener el carrito del Local Storage (si existe)
-  let carrito = localStorage.getItem('carrito');
-  let productosCarrito = [];
-
-  // Si el carrito ya existe en el Local Storage, convertirlo en un array
-  if (carrito) {
-    productosCarrito = JSON.parse(carrito);
-  }
+ 
 
   productos.forEach((producto) => {
     let categoria = producto.categoriaProducto;
@@ -23,7 +16,8 @@ const imprimirProductos = (productos) => {
     let imagenI = producto.imagenProducto;
     let idI = producto.productoId;
 
-    let enCarrito = productosCarrito.some((p) => p.nombre === nombreI);
+    let enCarrito = '';
+    // productosCarrito.some((p) => p.nombre === nombreI);
 
     let productoEnArray = document.createElement('div');
     productoEnArray.setAttribute("class", "mt-2 col-sm-6 col-lg-4 pIndividual");
@@ -51,7 +45,7 @@ const imprimirProductos = (productos) => {
   });
 };
 
-let productosCarrito = [];
+
 
 // --------------FUNCIÓN DEL CARRITO 
 async function añadirAlCarrito(productId) {
@@ -98,13 +92,14 @@ async function getProductsFetch () {
 
 await fetch(url)
    .then(response => response.json())
-   .then(productos =>imprimirProductos(productos));
+   .then(productos =>imprimirProductos(productos))
+   .then(()=>mappearCarrito());
 }
 
 getProductsFetch();
 
-const mappearCarrito = async () => {
-  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
+const mappearCarrito =  () => {
+   fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
     .then(response => response.json())
     .then(lista => lista.forEach(productos => {
       document.querySelector(`#boton-carrito-${productos.producto.productoId}`).textContent = 'Ya en tu carrito';
@@ -112,4 +107,3 @@ const mappearCarrito = async () => {
     }));
   
 }
-mappearCarrito();

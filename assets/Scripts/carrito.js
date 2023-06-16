@@ -1,19 +1,19 @@
 const carritoContainer = document.getElementById('carrito-container');
-let cartProducts = getProducts();
-const precioTotalProductos = document.getElementById("precio-total-productos"); 
-const precioEnvio = document.getElementById("precio-envio"); 
-const precioSubtotal = document.getElementById("precio-subtotal"); 
-let  precioEnvioRandom = 100;
+const precioTotalProductos = document.getElementById("precio-total-productos");
+const precioEnvio = document.getElementById("precio-envio");
+const precioSubtotal = document.getElementById("precio-subtotal");
+let precioEnvioRandom = 100;
 const btnContinuarCompra = document.getElementById('btn-continuar-compra');
 const emptyCarDiv = document.getElementById('empty-car');
 const formaDePagoDiv = document.getElementById('forma-de-pago');
 const resumenDeCompraDiv = document.getElementById('resumen-de-compra');
+let idOrden = localStorage.getItem('Orden');
+let idUsuario = localStorage.getItem('Usuario');
 
-if(cartProducts.length === 0 ){
-    // emptyCart();
-}
 
-function emptyCart(){
+
+
+function emptyCart() {
     precioTotalProductos.innerHTML = 'Aquí verás los importes de tu compra una vez que agregues productos.'
     precioEnvio.style.display = 'none';
     precioSubtotal.style.display = 'none';
@@ -28,62 +28,47 @@ function emptyCart(){
     `
 }
 
-function getProducts() {
-    return JSON.parse(localStorage.getItem('carrito')) || [] ;
-}
-// updateCart();
 
-
-function updateCart(){
-    renderCartProducts();
-    renderSubTotal();
-    saveProductsToStorage(cartProducts);
-    if(cartProducts.length === 0 ){
-        emptyCart();
-    }
-}
-
-function renderSubTotal(products){
+function renderSubTotal(products) {
     let totalPrice = 0;
     let totalItems = 0;
-    
-    products.forEach((productos)=>{
+
+    products.forEach((productos) => {
         totalPrice += productos.producto.precioProducto * productos.cantidadProducto;
         totalItems += productos.cantidadProducto;
-        
+
     });
-   
+
     precioTotalProductos.innerHTML = `Subtotal (${totalItems} productos): $ ${totalPrice}`;
     precioEnvio.innerHTML = `Precio de envío: $ ${precioEnvioRandom}`;
     precioSubtotal.innerHTML = `Subtotal $ ${totalPrice + precioEnvioRandom}`
 }
 
-function getRandomNumber(min, max) {
-    // Generar un número aleatorio para el precio del envio entre min (incluido) y max (excluido) 
-    return Math.floor(Math.random() * (max - min) + min);
-  }
 
-  
 function getProductsFetch() {
-    let idOrden = localStorage.getItem('Orden'); 
+ 
     const url = `https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`
-    // const url = 'http://localhost:8080/api/carrito/orden/1'
-  
-  fetch(url)
-     .then(response => response.json())
-     .then(productos => { 
-        renderCartProducts(productos) 
-        renderSubTotal(productos)});
-  }
 
-  getProductsFetch();
+    fetch(url)
+        .then(response => response.json())
+        .then(productos => {
+            renderCartProducts(productos)
+            renderSubTotal(productos)
+        })
+        .catch(error => console.log('Hola' + error));
+}
+
+getProductsFetch();
 
 function renderCartProducts(producto) {
     carritoContainer.innerHTML = ""; // Limpiar cart-container
+    if(producto.length == 0){
+        emptyCart();
+    }
     producto.forEach((productos) => {
         const productDiv = document.createElement('div');
         productDiv.classList.add("d-flex", "gap-2");
-        
+
         productDiv.innerHTML = `
             <img src="${productos.producto.imagenProducto}" alt="${productos.producto.nombreProducto}" class="img-producto-card">
             <div class="d-flex flex-column gap-3 justify-content-center">
@@ -91,62 +76,63 @@ function renderCartProducts(producto) {
                 <div class="d-flex flex-row gap-5">
                     <button class="boton-quitar" onclick="removeProductFromCart(${productos.productHasOrdenId})">Quitar</button>
                     <span class="input-wrapper">
-                        <button class="decrement" onclick="changeNumberOfUnits('minus',${productos.productHasOrdenId})">-</button>
+                        <button class="decrement" onclick="changeNumberOfUnits('minus', ${productos.productHasOrdenId})">-</button>
                         <input type="number" value="${productos.cantidadProducto}">
-                        <button class="increment" onclick="changeNumberOfUnits('plus',${productos.productHasOrdenId})">+</button>
+                        <button class="increment" onclick="changeNumberOfUnits('plus', ${productos.productHasOrdenId})">+</button>
                     </span>
                     <span class="texto-labels">$ ${productos.producto.precioProducto}</span>
                 </div>
             </div>`;
-        
-        
+
         carritoContainer.appendChild(productDiv);
     });
-  
+
 }
 
-function removeProductFromCart(id){
-    // cartProducts = cartProducts.filter((product)=> product.id !== id)
-    // updateCart();
-    // const url = `https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${id}`;
-    const url = `http://localhost:8080/api/carrito/${id}`;
-    fetch(url,
+async function removeProductFromCart(id) {
+
+    const url = `https://backend-pagina-heladeria-production.up.railway.app/api/carrito/${id}`;
+   
+    await fetch(url,
         {
-            method: 'DELETE', 
+            method: 'DELETE',
         }).then(res => console.log(res.text()))
         .catch(error => console.log(error))
-        
+    location.reload();
 }
 
-function changeNumberOfUnits(action, productId){
-    const datosObj = {
+async function changeNumberOfUnits(action, ordenCarritoId) {
 
-    }
+   
+    const ordenCarritoObj =  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/${ordenCarritoId}`).then(response => response.json())
+   
 
-    const url = `http://localhost:8080/api/carrito/${id}`;
-    fetch(url,
+    let cantidad = ordenCarritoObj.cantidadProducto;
+  
+            if(action === 'minus' && cantidad > 1){
+                cantidad--;
+            }else if(action=='plus'){
+                cantidad++;
+            }
+
+            const datosObj = {
+                cantidadProducto: cantidad,
+                producto: ordenCarritoObj.producto,
+                orden: ordenCarritoObj.orden
+            };
+
+ console.log(datosObj)
+
+
+   await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/${ordenCarritoId}`,
         {
             method: 'PUT',
-            body: JSON.stringify(), 
+            body: JSON.stringify(datosObj),
+            headers: { "Content-type": "application/json; charset=UTF-8" }
         }).then(res => console.log(res.text()))
         .catch(error => console.log(error))
-
-
-    // cartProducts = cartProducts.map((product)=>{
-    //     let cantidad = product.cantidadProducto;
-
-    //     if(product.id === productId){
-    //         if(action === 'minus' && cantidad > 1){
-    //             cantidad--;
-    //         }else if(action=='plus'){
-    //             cantidad++;
-    //         }
-    //     }
-    //     return {...product, cantidad};
-    // });
+        location.reload();
     // updateCart();
-
-
 }
 
 
@@ -157,10 +143,9 @@ function saveProductsToStorage(products) {
 
 renderCartProducts();
 
- 
-  btnContinuarCompra.addEventListener('click', ()=>{
+
+function continuarCompra () {
     window.location.href = '../../index.html';
-  });
+}
 
 
-// -------------------------Botón comprar
