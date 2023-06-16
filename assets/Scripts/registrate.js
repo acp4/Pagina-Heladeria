@@ -1,4 +1,4 @@
-let logStatus= false;
+
 const validarFormulario = () => {
   let nombre = document.getElementById('nombre').value;
   let correo = document.getElementById('correo').value;
@@ -136,7 +136,6 @@ function crearUsuario(datos) {
   })
   .then(response => response.json()) 
     .then(() => {confetti(); 
-      localStorage.setItem('LogStatus', JSON.stringify(true));
       setTimeout(() => { window.location.href = "../html/login.html" }, 2000);})
     .catch(() => swal(`El correo electrónico ya está registrado.`, {
       icon: "warning",
