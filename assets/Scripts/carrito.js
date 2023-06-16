@@ -99,20 +99,6 @@ function renderCartProducts(producto) {
                 </div>
             </div>`;
         
-        // const removeButton = productDiv.querySelector(".boton-quitar");
-        // removeButton.addEventListener("click", () => {
-        //     removeProductFromCart(productos.producto.productoId);
-        // });
-        
-        // const decrementButton = productDiv.querySelector(".decrement");
-        // decrementButton.addEventListener("click", () => {
-        //     changeNumberOfUnits('minus', productos.producto.productoId);
-        // });
-        
-        // const incrementButton = productDiv.querySelector(".increment");
-        // incrementButton.addEventListener("click", () => {
-        //     changeNumberOfUnits('plus', productos.producto.productoId);
-        // });
         
         carritoContainer.appendChild(productDiv);
     });
@@ -134,7 +120,7 @@ function removeProductFromCart(id){
 
 function changeNumberOfUnits(action, productId){
     const datosObj = {
-        
+
     }
 
     const url = `http://localhost:8080/api/carrito/${id}`;
