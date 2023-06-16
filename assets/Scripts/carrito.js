@@ -44,7 +44,6 @@ function updateCart(){
 }
 
 function renderSubTotal(products){
-    console.log(products);
     let totalPrice = 0;
     let totalItems = 0;
     
@@ -65,9 +64,10 @@ function getRandomNumber(min, max) {
   }
 
   
-function getProductsFetch () {
-    // const url = 'https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/1'
-    const url = 'http://localhost:8080/api/carrito/orden/1'
+function getProductsFetch() {
+    let idOrden = localStorage.getItem('Orden'); 
+    const url = `https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`
+    // const url = 'http://localhost:8080/api/carrito/orden/1'
   
   fetch(url)
      .then(response => response.json())

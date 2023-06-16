@@ -15,7 +15,7 @@ const comparacionLogin = (correo1,contra1,usuarios)=>{
   for(let i = 0; i < usuarios.length; i++){
     if (correo1 == usuarios[i].emailUsuario && contra1 == usuarios[i].contraseña){
        verificar = true;
-       CrearOrden(usuarios[i].usuarioId);
+      CrearOrden(usuarios[i].usuarioId);
      } 
   }
   if (verificar) {     
@@ -84,6 +84,15 @@ function CrearOrden(datos) {
   };
   fetch('https://backend-pagina-heladeria-production.up.railway.app/api/ordenes', {
     method: "POST",
-    body:  JSON.stringify(datosObj),
-    headers: {"Content-type": "application/json; charset=UTF-8"}
-  })}
+    body: JSON.stringify(datosObj),
+    headers: { "Content-type": "application/json; charset=UTF-8" }
+  }
+  )
+    .then(response => response.json())
+    .then(respons => {
+      let orden = respons.ordenId;
+      let cliente = respons.usuarioId;
+      localStorage.setItem('Orden', orden);
+      localStorage.setItem('Usuario', cliente);
+    })
+}

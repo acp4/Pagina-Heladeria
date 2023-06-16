@@ -1,3 +1,6 @@
+let idOrden = localStorage.getItem('Orden');
+let idUsuario = localStorage.getItem('Usuario');
+
 const busquedaTexto = document.getElementById('datos-buscados');
 
 const heladosContenedorP = document.getElementById('contenedor-helados-premium');
@@ -5,10 +8,10 @@ const heladosContenedor = document.getElementById('contenedor-helados');
 const paletasContenedor = document.getElementById('contenedor-paletas');
 const aguasContenedor = document.getElementById('contenedor-aguas');
 
-const API = async () => {
+const API = () => {
 
   let datos = localStorage.getItem("busuedaLosReyes");
-  await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/buscar/${datos}`, {
+  fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/buscar/${datos}`, {
   })
     .then(response => response.json())
     .then(productos => {
@@ -64,40 +67,34 @@ const imprimirProductos = (productos) => {
     } else {
       heladosContenedorP.appendChild(productoEnArray);
     }
+    
   });
 };
 
 let productosCarrito = [];
 
 // --------------FUNCIÓN DEL CARRITO 
-function añadirAlCarrito(productId) {
-  let carrito = localStorage.getItem('carrito');
-  if (carrito) {
-    productosCarrito = JSON.parse(carrito);
-
-    if (productosCarrito.some((item) => item.id == productId)) {
-      document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
-      
-      console.log("Elemento existen el localStorage")
-    } else {
-      console.log('Elemento no existe en local')
-      const product = productos.find((element) => {
-        return element.id === productId;
-      });
-      productosCarrito.push({ ...product, cantidad: 1 })
-      console.log(productosCarrito);
-      localStorage.setItem('carrito', JSON.stringify(productosCarrito));
+async function añadirAlCarrito(productId) {
+  const productoObj = await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/productos/${productId}`, {
+  })
+    .then(response => response.json());
+  
+  const datosObj = {
+    cantidadProducto: 1,
+    producto: productoObj,
+    orden: {
+      ordenId: idOrden,
+      usuarioId: idUsuario
     }
-  } else {
-    console.log('No hay datos en el local storage')
-    const product = productos.find((element) => {
-      return element.id === productId;
-    });
-    productosCarrito.push({ ...product, cantidad: 1 })
-    console.log(productosCarrito);
-    localStorage.setItem('carrito', JSON.stringify(productosCarrito));
-  }
-
+  };
+  await fetch('https://backend-pagina-heladeria-production.up.railway.app/api/carrito', {
+    method: "POST",
+    body: JSON.stringify(datosObj),
+    headers: { "Content-type": "application/json; charset=UTF-8" }
+  })
+  
+  document.querySelector(`#boton-carrito-${productId}`).textContent = 'Ya en tu carrito';
+  document.querySelector(`#boton-carrito-${productId}`).setAttribute("disabled", "true");
 }
 
 
@@ -120,4 +117,15 @@ async function openModal(productId) {
   modal.style.display = 'block';
 }
 
+const mappearCarrito = async () => {
+  const verificar = await fetch(`https://backend-pagina-heladeria-production.up.railway.app/api/carrito/orden/${idOrden}`)
+    .then(response => response.json())
+    .then(lista => lista.forEach(productos => {
+      document.querySelector(`#boton-carrito-${productos.producto.productoId}`).textContent = 'Ya en tu carrito';
+      document.querySelector(`#boton-carrito-${productos.producto.productoId}`).setAttribute("disabled", "true");
+    }));
+  
+}
+
 API();
+mappearCarrito();

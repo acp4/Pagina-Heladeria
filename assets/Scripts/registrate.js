@@ -91,7 +91,7 @@ const guardarDatos = (event) => {
     };
     // Solicitud Post
     crearUsuario(JSON.stringify(datos));
-    //setTimeout(() => { window.location.href = "./login.html" }, 2000);
+    setTimeout(() => { window.location.href = "./login.html" }, 2000);
   }
 }
 
