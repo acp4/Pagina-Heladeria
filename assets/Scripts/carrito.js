@@ -144,8 +144,8 @@ function saveProductsToStorage(products) {
 renderCartProducts();
 
 
-btnContinuarCompra.addEventListener('click', () => {
+function continuarCompra () {
     window.location.href = '../../index.html';
-});
+}
 
 
